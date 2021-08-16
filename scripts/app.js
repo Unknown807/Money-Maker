@@ -16,6 +16,8 @@ var lastTime;
 
 // The current map and it's properties
 
+Map.updateData("testmap");
+
 function main() {
 	let now = Date.now();
 	let dt = (now - lastTime) / 1000.0;
