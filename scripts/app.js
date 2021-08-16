@@ -10,7 +10,6 @@ canvas.height = 360;
 
 document.body.appendChild(canvas);
 
-
 // The game loop
 
 var lastTime;
@@ -21,8 +20,17 @@ function main() {
 	
 	lastTime = now;
 	requestAnimFrame(main); 
+	
+	console.log("Hello World");
 }
 
 function init() {
 	main();
 }
+
+resources.load([
+	"assets/images/interiors.png",
+	"assets/images/interiors_floors_walls.png"
+]);
+
+//resources.onReady(init);
