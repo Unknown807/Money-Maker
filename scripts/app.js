@@ -63,6 +63,8 @@ function updateEntities(dt) {
 function render() {
 	//ctx.drawImage(resources.get("assets/maps/"+Map.image), 0, 0);
 	
+	Camera.render(ctx, canvas.width, canvas.height, player);
+	
 	Map.renderLayer(ctx, Map.background);
 	Map.renderLayer(ctx, Map.underlay);
 	
