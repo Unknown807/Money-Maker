@@ -34,36 +34,21 @@ class Map {
 		Map.underlay = data["underlay"];
 		Map.overlay = data["overlay"];
 		
-		Map.collision_boxes = data["obstacles"]["collisions"];
+		Map.collision_boxes = data["obstacles"]["data"];
 	}
 	
 	static renderLayer(ctx, layer) {
 		let image = "assets/images/"+layer["tileset"];
 		
-		let row = 0;
-		let col = 0;
-		
-		while (row <= layer["height"]) {
-			
-			let tile = layer["data"][col];
-			
-			if (tile == -1) {
-				continue;
-			}
+		for (let i=0; i<layer["data"].length; i++) {
+			let tile = layer["data"][i];
 			
 			ctx.drawImage(resources.get(image),
-				tile[0]*32, tile[1]*32,
+				tile[2], tile[3],
 				32, 32,
-				(col%layer["width"])*32, row*32,
+				tile[0]*32, tile[1]*32,
 				32, 32);
-			
-			col++;
-			
-			if (col % layer["width"] == 0) {
-				row++;
-			}
 		}
-		
 	}
 	
 }
