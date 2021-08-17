@@ -14,7 +14,13 @@ document.body.appendChild(canvas);
 
 var lastTime;
 
-// The current map and it's properties
+// The player
+
+/*
+var player = {
+	pos: [0, 0],
+	sprite: new Sprite("assets/images/players.png", [0, 32], [32, 32])
+}*/
 
 Map.updateData("testmap");
 
@@ -41,5 +47,5 @@ resources.load([
 resources.onReady(init);
 
 function render() {
-	ctx.drawImage(resources.get("assets/maps/testmap.png"), 0, 0);
+	ctx.drawImage(resources.get("assets/maps/"+Map.image), 0, 0);
 }
