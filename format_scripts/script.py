@@ -14,7 +14,6 @@ fgids = {}
 new_map = {
     "map_height": data["height"],
     "map_width": data["width"],
-    "layers": []
 }
 
 for fgid in data["tilesets"]:
@@ -74,7 +73,7 @@ for layer in data["layers"]:
         new_layer["data"] = new_data
         new_layer["tileset"] = fgids[layer_type][3]
         
-    new_map[layer["name"]] = new_layer
+    new_map[layer["name"].split("_")[0]] = new_layer
 
 # save new map
 

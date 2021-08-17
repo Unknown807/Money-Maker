@@ -22,12 +22,18 @@ var player = {
 	sprite: new Sprite("assets/images/players.png", [0, 32], [32, 32])
 }*/
 
-Map.updateData("testmap");
+resources.load([
+	"assets/images/interiors.png",
+	"assets/images/interiors_floors_walls.png",
+]);
+
+resources.onReady(init);
 
 function main() {
 	let now = Date.now();
 	let dt = (now - lastTime) / 1000.0;
 	
+	update(dt);
 	render();
 	
 	lastTime = now;
@@ -35,17 +41,33 @@ function main() {
 }
 
 function init() {
+	Map.updateData("testmap2");
+	
+	lastTime = Date.now();
 	main();
 }
 
-resources.load([
-	"assets/images/interiors.png",
-	"assets/images/interiors_floors_walls.png",
-	"assets/maps/testmap.png",
-]);
+function update(dt) {
 
-resources.onReady(init);
+}
+
+function updateEntities(dt) {
+
+}
 
 function render() {
-	ctx.drawImage(resources.get("assets/maps/"+Map.image), 0, 0);
+	//ctx.drawImage(resources.get("assets/maps/"+Map.image), 0, 0);
+	
+	Map.renderLayer(ctx, Map.background);
+	Map.renderLayer(ctx, Map.underlay);
+	// Render player here
+	Map.renderLayer(ctx, Map.overlay);
+}
+
+function renderEntities() {
+
+}
+
+function renderEntity() {
+
 }
