@@ -19,12 +19,15 @@ var lastTime;
 /*
 var player = {
 	pos: [0, 0],
-	sprite: new Sprite("assets/images/players.png", [0, 32], [32, 32])
+	sprite: new PlayerSprite("assets/images/players.png", [0, 32], [32, 32], 3, [[0,1,2], [3,4,5], [6,7,8], [9,10,11]])
 }*/
+
+var player = new PlayerSprite("assets/images/players.png", [0, 0], [0, 32], [32, 32], 3, [[0,1,2], [3,4,5], [6,7,8], [9,10,11]])
 
 resources.load([
 	"assets/images/interiors.png",
 	"assets/images/interiors_floors_walls.png",
+	"assets/images/players.png",
 ]);
 
 resources.onReady(init);
@@ -48,11 +51,13 @@ function init() {
 }
 
 function update(dt) {
-
+	
+	player.handleInput(dt);
+	updateEntities(dt);
 }
 
 function updateEntities(dt) {
-
+	player.update(dt);
 }
 
 function render() {
@@ -60,7 +65,9 @@ function render() {
 	
 	Map.renderLayer(ctx, Map.background);
 	Map.renderLayer(ctx, Map.underlay);
-	// Render player here
+	
+	renderEntity(player);
+	
 	Map.renderLayer(ctx, Map.overlay);
 }
 
@@ -68,6 +75,9 @@ function renderEntities() {
 
 }
 
-function renderEntity() {
-
+function renderEntity(entity) {
+	ctx.save();
+    ctx.translate(entity.pos[0], entity.pos[1]);
+    entity.render(ctx);
+    ctx.restore();
 }
