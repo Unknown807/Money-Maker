@@ -10,19 +10,9 @@ canvas.height = 512;
 
 document.body.appendChild(canvas);
 
-// The game loop
+// Entities
 
-var lastTime;
-
-// The player
-
-/*
-var player = {
-	pos: [0, 0],
-	sprite: new PlayerSprite("assets/images/players.png", [0, 32], [32, 32], 3, [[0,1,2], [3,4,5], [6,7,8], [9,10,11]])
-}*/
-
-var player = new PlayerSprite("assets/images/players.png", [0, 0], [0, 32], [32, 32], 3, [[0,1,2], [3,4,5], [6,7,8], [9,10,11]])
+var player = new PlayerSprite("assets/images/players.png", [50, canvas.height/2], [0, 32], [32, 32], 3, [[0,1,2], [3,4,5], [6,7,8], [9,10,11]])
 
 resources.load([
 	"assets/images/interiors.png",
@@ -31,6 +21,10 @@ resources.load([
 ]);
 
 resources.onReady(init);
+
+// The game loop
+
+var lastTime;
 
 function main() {
 	let now = Date.now();
@@ -51,9 +45,10 @@ function init() {
 }
 
 function update(dt) {
-	
 	player.handleInput(dt);
 	updateEntities(dt);
+	
+	checkObstacleCollisions(player);
 }
 
 function updateEntities(dt) {
@@ -61,8 +56,6 @@ function updateEntities(dt) {
 }
 
 function render() {
-	//ctx.drawImage(resources.get("assets/maps/"+Map.image), 0, 0);
-	
 	Camera.render(ctx, canvas.width, canvas.height, player);
 	
 	Map.renderLayer(ctx, Map.background);

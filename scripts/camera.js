@@ -13,8 +13,8 @@ class Camera {
 		let mapImageWidth = Map.width*32;
 		let mapImageHeight = Map.height*32;
 		
-		Camera.camX = clamp(-player.pos[0] + canvasWidth/2, -mapImageWidth, mapImageWidth);
-		Camera.camY = clamp(-player.pos[1] + canvasHeight/2, -mapImageHeight, mapImageHeight);
+		Camera.camX = Math.round(clamp(-player.pos[0] + canvasWidth/2, -mapImageWidth, mapImageWidth));
+		Camera.camY = Math.round(clamp(-player.pos[1] + canvasHeight/2, -mapImageHeight, mapImageHeight));
 		
 		let camBorderX = (mapImageWidth+(canvasWidth/2)-player.pos[0] < canvasWidth || player.pos[0] < canvasWidth/2);
 		let camBorderY = (mapImageHeight+(canvasHeight/2)-player.pos[1] < canvasHeight || player.pos[1] < canvasHeight/2);
