@@ -41,6 +41,13 @@ function init() {
 	Map.updateData("testmap2");
 	
 	lastTime = Date.now();
+	
+	// Show title screen first
+	document.getElementById("menu-area").style.backgroundImage = "url("+"'./assets/images/title_bg.png'"+")";
+	document.getElementById("back-button").style.display = "none";
+	document.getElementById("cross-button").style.display = "none";
+	toggleMenus("block");
+	
 	main();
 }
 

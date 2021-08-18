@@ -1,8 +1,8 @@
 
 var pressedKeys = {};
 
-var menuShown = false;
-var currentMenu = null;
+var menuShown = true;
+var currentMenu = "title";
 
 function setKey(event, status) {
 	
@@ -87,48 +87,9 @@ function handleInteractionInput(player) {
 		menuShown = true;
 		currentMenu = "options";
 		
-		document.getElementById("game-overlay").style.display = "block";
-		document.getElementById("menu-area").style.display = "block";
-		document.getElementById("options-menu").style.display = "block";
+		toggleMenus("block");
 		document.getElementById("back-button").style.display = "none";
+		document.getElementById("cross-button").style.display = "block";
 		
 	}
-	
 }
-
-function gotoMenu() {
-	document.getElementById("options-menu").style.display = "none";
-	document.getElementById("back-button").style.display = "block";
-	document.getElementById(currentMenu+"-menu").style.display = "block";
-}
-
-// Close from whatever menu you're on
-document.getElementById("cross-button").addEventListener("click", function() {
-	document.getElementById("game-overlay").style.display = "none";
-	document.getElementById("menu-area").style.display = "none";
-	document.getElementById(currentMenu+"-menu").style.display = "none";
-	menuShown = false;
-});
-
-document.getElementById("inventory-button").addEventListener("click", function() {
-	currentMenu = "inventory";
-	gotoMenu();
-});
-
-document.getElementById("settings-button").addEventListener("click", function() {
-	currentMenu = "settings";
-	gotoMenu();
-});
-
-document.getElementById("credits-button").addEventListener("click", function() {
-	currentMenu = "credits";
-	gotoMenu();
-});
-
-//Go back to options menu
-document.getElementById("back-button").addEventListener("click", function() {
-	document.getElementById(currentMenu+"-menu").style.display = "none";
-	document.getElementById("options-menu").style.display = "block";
-	document.getElementById("back-button").style.display = "none";
-	currentMenu = "options";
-});

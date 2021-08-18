@@ -63,6 +63,17 @@ canvas {
 	box-shadow: 2px 1000px 1px rgba(0,0,0,0.7) inset;
 }
 
+.menu-label {
+	font-family: merienda;
+	font-size: 2em;
+}
+
+.title-label {
+	font-family: merienda;
+	font-size: 3rem;
+	color: green;
+}
+
 #options-menu > * {
 	margin-bottom: 10px;
 }
