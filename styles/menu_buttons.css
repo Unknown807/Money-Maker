@@ -2,17 +2,17 @@
 #back-button {
 	background: url("../assets/images/back_arrow_white.png") no-repeat;
 	width: 32px;
-	height: 12px;
-	left: 3px;
-	top: 2px;
+	height: 20px;
+	left: 20px;
+	top: 30px;
 }
 
 #cross-button { 
 	background: url("../assets/images/cross_white.png") no-repeat;
-	width: 20px;
-	height: 12px;
-	left: calc( 640px - 72px );
-	top: 4px;
+	width: 28px;
+	height: 20px;
+	left: calc( 640px - 50px - 28px - 25px );
+	top: 30px;
 }
 
 #back-button:hover {
