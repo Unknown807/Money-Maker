@@ -33,8 +33,8 @@ function checkObstacleCollisions(player) {
 	let collided = false;
 	let collided_obstacles = [];
 	
-	for (let i=0; i<Map.collision_boxes.length; i++) {
-		let object = Map.collision_boxes[i];
+	for (let i=0; i<map.collision_boxes.length; i++) {
+		let object = map.collision_boxes[i];
 		
 		collided = boxesCollide(player.pos, player.size,
 								[object["x"], object["y"]],

@@ -1,43 +1,32 @@
 
+const fs = require("fs");
 
 class Map {
-	static width = 0;
-	static height = 0;
-	static background = null;
-	static underlay = null;
-	static overlay = null;
-	static collision_boxes = [];
-	
-	// Read and return map data from json file
-	static getJSONdata(filename) {
-		var result = null;
-		
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", "./assets/maps/"+filename+".json", false);
-		xmlhttp.send();
-		
-		if (xmlhttp.status==200) {
-			result = xmlhttp.responseText;
-		}
-		
-		return JSON.parse(result);
+	constructor() {
+		this.width = 0;
+		this.height = 0;
+		this.background = null;
+		this.underlay = null;
+		this.overlay = null;
+		this.collision_boxes = [];
 	}
 	
 	// Set map data
-	static updateData(filename) {
-		let data = Map.getJSONdata(filename);
+	updateData(filename) {
+		let rawdata = fs.readFileSync("./assets/maps/"+filename+".json");
+		let data = JSON.parse(rawdata);
 		
-		Map.width = data["map_width"];
-		Map.height = data["map_height"];
+		this.width = data["map_width"];
+		this.height = data["map_height"];
 		
-		Map.background = data["background"];
-		Map.underlay = data["underlay"];
-		Map.overlay = data["overlay"];
+		this.background = data["background"];
+		this.underlay = data["underlay"];
+		this.overlay = data["overlay"];
 		
-		Map.collision_boxes = data["obstacles"]["data"];
+		this.collision_boxes = data["obstacles"]["data"];
 	}
 	
-	static renderLayer(ctx, layer) {
+	renderLayer(ctx, layer) {
 		let image = "assets/images/"+layer["tileset"];
 		
 		for (let i=0; i<layer["data"].length; i++) {

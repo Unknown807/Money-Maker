@@ -1,5 +1,3 @@
-
-
 // Create the canvas
 
 var canvas = document.createElement("canvas");
@@ -12,6 +10,8 @@ document.body.appendChild(canvas);
 
 // Entities
 
+var map = new Map();
+var camera = new Camera();
 var player = new PlayerSprite("assets/images/players.png", [50, canvas.height/2], [0, 32], [32, 32], 6, [[0,1,2], [3,4,5], [6,7,8], [9,10,11]])
 
 resources.load([
@@ -38,7 +38,7 @@ function main() {
 }
 
 function init() {
-	Map.updateData("testmap2");
+	map.updateData("testmap2");
 	
 	lastTime = Date.now();
 	
@@ -65,14 +65,14 @@ function updateEntities(dt) {
 }
 
 function render() {
-	Camera.render(ctx, canvas.width, canvas.height, player);
+	camera.render(ctx, canvas.width, canvas.height, player);
 	
-	Map.renderLayer(ctx, Map.background);
-	Map.renderLayer(ctx, Map.underlay);
+	map.renderLayer(ctx, map.background);
+	map.renderLayer(ctx, map.underlay);
 	
 	renderEntity(player);
 	
-	Map.renderLayer(ctx, Map.overlay);
+	map.renderLayer(ctx, map.overlay);
 }
 
 function renderEntities() {
