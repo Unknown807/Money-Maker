@@ -1,0 +1,32 @@
+
+#back-button {
+	background: url("../assets/images/back_arrow_white.png") no-repeat;
+	width: 32px;
+	height: 12px;
+	left: 3px;
+	top: 2px;
+}
+
+#cross-button { 
+	background: url("../assets/images/cross_white.png") no-repeat;
+	width: 20px;
+	height: 12px;
+	left: calc( 640px - 72px );
+	top: 4px;
+}
+
+#back-button:hover {
+	background: url("../assets/images/back_arrow.png") no-repeat;
+	background-size: 100% 100%;
+}
+
+#cross-button:hover {
+	background: url("../assets/images/cross.png") no-repeat;
+	background-size: 100% 100%;
+}
+
+#back-button, #cross-button {
+	cursor: pointer;
+	background-size: 100% 100%;
+    position: absolute;
+}
