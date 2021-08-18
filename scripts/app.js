@@ -12,7 +12,7 @@ document.body.appendChild(canvas);
 
 // Entities
 
-var player = new PlayerSprite("assets/images/players.png", [50, canvas.height/2], [0, 32], [32, 32], 3, [[0,1,2], [3,4,5], [6,7,8], [9,10,11]])
+var player = new PlayerSprite("assets/images/players.png", [50, canvas.height/2], [0, 32], [32, 32], 6, [[0,1,2], [3,4,5], [6,7,8], [9,10,11]])
 
 resources.load([
 	"assets/images/interiors.png",
@@ -45,7 +45,9 @@ function init() {
 }
 
 function update(dt) {
-	player.handleInput(dt);
+	handleMovementInput(player, dt);
+	handleInteractionInput(player);
+	
 	updateEntities(dt);
 	
 	checkObstacleCollisions(player);

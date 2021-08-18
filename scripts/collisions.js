@@ -60,16 +60,18 @@ function preventPassage(player, object) {
 	let objectRight = object["x"]+object["width"];
 	let objectBottom = object["y"]+object["height"];
 	
-	if (Math.abs(player.pos[1] - objectBottom) < 10) {
+	let collision_tolerance = 10;
+	
+	if (Math.abs(player.pos[1] - objectBottom) < collision_tolerance) {
 		player.pos[1] += Math.abs(player.pos[1] - objectBottom); 
 	}
-	if (Math.abs(object["y"] - playerBottom) < 10) {
+	if (Math.abs(object["y"] - playerBottom) < collision_tolerance) {
 		player.pos[1] -= Math.abs(object["y"] - playerBottom);
 	}
-	if (Math.abs(player.pos[0] - objectRight) < 10) {
+	if (Math.abs(player.pos[0] - objectRight) < collision_tolerance) {
 		player.pos[0] += Math.abs(player.pos[0] - objectRight)
 	}
-	if (Math.abs(object["x"] - playerRight) < 10) {
+	if (Math.abs(object["x"] - playerRight) < collision_tolerance) {
 		player.pos[0] -= Math.abs(object["x"] - playerRight)
 	}
 	
