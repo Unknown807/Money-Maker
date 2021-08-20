@@ -96,16 +96,22 @@ function handleInteractionInput(player, map) {
 	// Pick up item that is currently in range
 	if (input.isDown("e") && !menuShown && current_item != null) {
 		
-		/*
-		let file = require("./removed_items.json");
+		let rawdata = fs.readFileSync("./removed_items.json");
+		let data = JSON.parse(rawdata);
 		
-		let item_name = current_item["item_name"].toLowerCase();
-		let item_stock = player.inventory.get(item_name) || 0;
-		player.inventory.set(item_name, item_stock++);
+		let item_id = current_item["item_id"];
+		let item = map.items[item_id];
 		
-		file.items.push([
+		let item_stock = player.inventory.get(item["item_name"]) || 0;
+		player.inventory.set(item["item_name"], item_stock++);
 		
-		]);*/
+		data[map.map_name].push(item_id);
+		fs.writeFileSync("./removed_items.json", JSON.stringify(data));
+		
+		map.item_boxes.splice(map.item_boxes.indexOf(current_item), 1);
+		map.item_sprites.delete(item_id);
+		current_item = null;
+		
 		console.log("Picked up item");
 	}
 }

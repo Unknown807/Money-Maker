@@ -1,3 +1,4 @@
+const fs = require("fs");
 
 var requestAnimFrame = (function(){
     return window.requestAnimationFrame       ||

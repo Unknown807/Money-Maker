@@ -94,7 +94,7 @@ function checkDoorCollisions(player) {
 var current_item = null;
 
 function checkItemCollisions(player) {
-	let collided_item = checkCollisions(player, map.items, false);
+	let collided_item = checkCollisions(player, map.item_boxes, false);
 	
 	if (collided_item) {
 		current_item = collided_item;

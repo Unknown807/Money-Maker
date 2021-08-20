@@ -40,7 +40,11 @@ function main() {
 
 function init() {
 	try {
-		fs.writeFileSync("removed_items.json", JSON.stringify({"items": null}));
+		fs.writeFileSync("removed_items.json", JSON.stringify({
+			"map1": [],
+			"map2": [],
+			"map3": [],
+		}));
 	} catch (err) {
 		console.error(err);
 	}
@@ -69,7 +73,6 @@ function update(dt) {
 	checkDoorCollisions(player);
 	checkItemCollisions(player);
 }
-
 
 function updateEntities(dt, entities) {
 	entities.forEach((entity) => entity.update(dt));

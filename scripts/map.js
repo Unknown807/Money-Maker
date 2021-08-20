@@ -1,6 +1,4 @@
 
-const fs = require("fs");
-
 class GameMap {
 	constructor() {
 		this.map_name = "";
@@ -36,10 +34,29 @@ class GameMap {
 		this.doors = data["doors"]["data"];
 		this.item_boxes	= data["items"]["data"];
 		
-		rawdata = fs.readFileSync("./assets/maps/"+filename+"_items.json");
+		// Remove already picked up items
+		
+		rawdata = fs.readFileSync("./removed_items.json");
 		data = JSON.parse(rawdata);
 		
-		this.items = data;
+		let box;
+		for (let i=0; i<this.item_boxes.length; i++) {
+			box = this.item_boxes[i];
+			
+			if (data[this.map_name].includes(box["item_id"])) {
+				this.item_boxes.splice(i, 1);
+				i--;
+			}
+		}
+		
+		// Some rooms don't have any items so there is no corresponding items json file for the map
+		
+		if (this.item_boxes.length > 0) {
+			rawdata = fs.readFileSync("./assets/maps/"+filename+"_items.json");
+			data = JSON.parse(rawdata);
+			
+			this.items = data;
+		}
 	}
 	
 	createItemSprites() {
