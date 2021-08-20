@@ -1,0 +1,37 @@
+
+#inventory-menu {
+	overflow-y: scroll;
+	width: 500px;
+	height: 350px;
+	top: 35px;
+}
+
+#inventory-menu::-webkit-scrollbar {
+	display: none;
+}
+
+.inventory-item {
+	font-family: merienda;
+	font-size: 1em;
+	width: calc( 100% - 5px );
+	border-radius: 5px;
+	
+	color: white;
+	box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+	border: solid 3px transparent;
+	background-image: linear-gradient(101deg, #F4ED9C, #EACF6F, #D39350);
+	background-origin: border-box;
+	box-shadow: 2px 1000px 1px rgba(192,0,25,0.7) inset;
+	
+	margin-bottom: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.inventory-item > :first-child {
+	margin-left: 10px;
+}
+
+.inventory-item > :last-child {
+	margin-right: 10px;
+}

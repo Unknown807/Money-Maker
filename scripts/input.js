@@ -99,18 +99,24 @@ function handleInteractionInput(player, EKeySprite, map) {
 		let rawdata = fs.readFileSync("./removed_items.json");
 		let data = JSON.parse(rawdata);
 		
+		// Get the actual item data using the collided object's stored item_id
 		let item_id = current_item["item_id"];
 		let item = map.items[item_id];
 		
+		// Item amount goes up by 0 + 1 if its new or the previous value + 1
 		let item_stock = player.inventory.get(item["item_name"]) || 0;
 		player.inventory.set(item["item_name"], ++item_stock);
 		
+		// Add picked up item to removed_items so it can't be picked up again
 		data[map.map_name].push(item_id);
 		fs.writeFileSync("./removed_items.json", JSON.stringify(data));
 		
+		// Removing all relevant item references tht still exist (collision object and sprite)
 		map.item_boxes.splice(map.item_boxes.indexOf(current_item), 1);
 		map.item_sprites.delete(item_id);
 		current_item = null;
+		
+		updateInventoryMenu(player.inventory);
 		
 		EKeySprite.hide = true;
 	}

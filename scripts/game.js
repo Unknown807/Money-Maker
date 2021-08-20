@@ -14,7 +14,7 @@ document.body.appendChild(canvas);
 var map = new GameMap();
 var camera = new Camera();
 var player = new PlayerSprite("assets/images/players.png", [50, canvas.height/2], [0, 32], [32, 32], 6, [[0,1,2], [3,4,5], [6,7,8], [9,10,11]])
-var EKeySprite = new Sprite("assets/images/ekeys.png", [0,0], [0, 0], [32, 32], 1, [[0,1],]);
+var EKeySprite = new Sprite("assets/images/ekeys.png", [0,0], [0, 0], [32, 32], 2, [[0,1],]);
 EKeySprite.hide = true;
 EKeySprite.moving = true;
 
@@ -62,6 +62,8 @@ function init() {
 	document.getElementById("back-button").style.display = "none";
 	document.getElementById("cross-button").style.display = "none";
 	toggleMenus("block");
+	
+	updateInventoryMenu(player.inventory);
 	
 	main();
 }
