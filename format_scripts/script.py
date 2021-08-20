@@ -2,11 +2,12 @@ import json
 from PIL import Image
 import pytmx
 
-filename = "map3"
+filename = "map1"
 
 data = pytmx.TiledMap(filename+".tmx")
 
 new_map = {
+    "map_name": filename,
     "map_width": data.width,
     "map_height": data.height
 }   
@@ -49,8 +50,22 @@ for layer in data.visible_layers:
                         "width": node.width,
                         "height": node.height,
                         "map_name": node.map_name,
-                        "row": node.row,
-                        "col": node.col
+                        "start_row": node.row,
+                        "start_col": node.col
+                    })
+                except IndexError:
+                    break
+        elif layer.name == "items":
+            while True:
+                try:
+                    node = layer.pop()
+
+                    data.append({
+                        "x": node.x,
+                        "y": node.y,
+                        "width": node.width,
+                        "height": node.height,
+                        "item_id": node.item_id
                     })
                 except IndexError:
                     break

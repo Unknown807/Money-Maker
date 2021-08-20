@@ -80,7 +80,7 @@ function handleMovementInput(player, dt) {
 
 }
 
-function handleInteractionInput(player) {
+function handleInteractionInput(player, map) {
 	
 	// Open overlay and game menu
 	if (input.isDown("ESCAPE") && !menuShown) {
@@ -91,5 +91,21 @@ function handleInteractionInput(player) {
 		document.getElementById("back-button").style.display = "none";
 		document.getElementById("cross-button").style.display = "block";
 		
+	}
+	
+	// Pick up item that is currently in range
+	if (input.isDown("e") && !menuShown && current_item != null) {
+		
+		/*
+		let file = require("./removed_items.json");
+		
+		let item_name = current_item["item_name"].toLowerCase();
+		let item_stock = player.inventory.get(item_name) || 0;
+		player.inventory.set(item_name, item_stock++);
+		
+		file.items.push([
+		
+		]);*/
+		console.log("Picked up item");
 	}
 }

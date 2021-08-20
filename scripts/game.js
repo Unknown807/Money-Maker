@@ -1,3 +1,4 @@
+
 // Create the canvas
 
 var canvas = document.createElement("canvas");
@@ -10,7 +11,7 @@ document.body.appendChild(canvas);
 
 // Entities
 
-var map = new Map();
+var map = new GameMap();
 var camera = new Camera();
 var player = new PlayerSprite("assets/images/players.png", [50, canvas.height/2], [0, 32], [32, 32], 6, [[0,1,2], [3,4,5], [6,7,8], [9,10,11]])
 
@@ -34,12 +35,18 @@ function main() {
 	render();
 	
 	lastTime = now;
-	requestAnimFrame(main); 
+	requestAnimFrame(main);
 }
 
 function init() {
-	map.updateData("map1");
+	try {
+		fs.writeFileSync("removed_items.json", JSON.stringify({"items": null}));
+	} catch (err) {
+		console.error(err);
+	}
 	
+	map.updateData("map1");
+	map.createItemSprites();
 	lastTime = Date.now();
 	
 	// Show title screen first
@@ -53,16 +60,19 @@ function init() {
 
 function update(dt) {
 	handleMovementInput(player, dt);
-	handleInteractionInput(player);
+	handleInteractionInput(player, map);
 	
-	updateEntities(dt);
+	player.update(dt);
+	updateEntities(dt, map.item_sprites);
 	
 	checkObstacleCollisions(player);
 	checkDoorCollisions(player);
+	checkItemCollisions(player);
 }
 
-function updateEntities(dt) {
-	player.update(dt);
+
+function updateEntities(dt, entities) {
+	entities.forEach((entity) => entity.update(dt));
 }
 
 function render() {
@@ -71,13 +81,14 @@ function render() {
 	map.renderLayer(ctx, map.background);
 	map.renderLayer(ctx, map.underlay);
 	
+	renderEntities(map.item_sprites);
 	renderEntity(player);
 	
 	map.renderLayer(ctx, map.overlay);
 }
 
-function renderEntities() {
-
+function renderEntities(entities) {
+	entities.forEach(renderEntity);
 }
 
 function renderEntity(entity) {

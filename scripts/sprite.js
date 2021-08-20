@@ -1,13 +1,15 @@
 
 // down = 0, right = 1, up = 2, left = 3
+// ^ for non player can be anything
 
 class Sprite {
-	constructor(resource, imgPos, size, speed, frames, dir) {
+	constructor(resource, pos, imgPos, size, speed, frames, dir) {
 		this.resource = resource;
 		this.imgPos = imgPos;
+		this.pos = pos;
 		this.size = size;
-		this.speed = speed;
-		this.frames = frames;
+		this.speed = speed || 0;
+		this.frames = frames || [[0,],];
 		this.dir = dir || "horizontal";
 		this.moving = false;
 		

@@ -10,42 +10,37 @@ function boxesCollide(pos, size, pos2, size2) {
                     pos2[0] + size2[0], pos2[1] + size2[1]);
 }
 
-/*
-function checkCollisions(player, objects) {
+
+function checkCollisions(player, objects, multiple) {
+	let object;
 	let collided = false;
+	let collided_objects = [];
 	
 	for (let i=0; i<objects.length; i++) {
-		let object = objects[i];
+		object = objects[i];
 		collided = boxesCollide(player.pos, player.size,
 								[object["x"], object["y"]],
 								[object["width"], object["height"]]);
 		if (collided) {
-			collided = object;
-			break;
+			collided_objects.push(object);
+			if (!multiple) {
+				break;
+			}
 		}
 	}
 	
-	return collided;
+	if (multiple) {
+		return collided_objects;
+	} else {
+		return collided_objects[0];
+	}
 }
-*/
+
 
 // For checking obstacle layer collisions
 
 function checkObstacleCollisions(player) {
-	let collided = false;
-	let collided_obstacles = [];
-	
-	for (let i=0; i<map.collision_boxes.length; i++) {
-		let object = map.collision_boxes[i];
-		
-		collided = boxesCollide(player.pos, player.size,
-								[object["x"], object["y"]],
-								[object["width"], object["height"]]);
-								
-		if (collided) {
-			collided_obstacles.push(object);
-		}
-	}
+	let collided_obstacles = checkCollisions(player, map.collision_boxes, true);
 	
 	if (collided_obstacles.length > 0) {
 		for (let i=0; i<collided_obstacles.length; i++) {
@@ -82,25 +77,26 @@ function preventPassage(player, object) {
 // For checking collision with doors (to change maps)
 
 function checkDoorCollisions(player) {
-	let collided = false;
+	let collided_door = checkCollisions(player, map.doors, false);
 	
-	for (let i=0; i<map.doors.length; i++) {
-		let object = map.doors[i];
-		
-		collided = boxesCollide(player.pos, player.size,
-								[object["x"], object["y"]],
-								[object["width"], object["height"]]);
-								
-		if (collided) {
-			collided = object;
-			break;
-		}
+	if (collided_door) {
+		map.updateData(collided_door["map_name"]);
+		map.createItemSprites();
+		player.pos[0] = collided_door["start_col"]*32;
+		player.pos[1] = collided_door["start_row"]*32;
 	}
 	
-	if (collided) {
-		map.updateData(collided["map_name"]);
-		player.pos[0] = collided["col"]*32;
-		player.pos[1] = collided["row"]*32;
-	}
+}
+
+
+// Check whether you are in range to pick up an item
+
+var current_item = null;
+
+function checkItemCollisions(player) {
+	let collided_item = checkCollisions(player, map.items, false);
 	
+	if (collided_item) {
+		current_item = collided_item;
+	}
 }
