@@ -10,7 +10,6 @@ function boxesCollide(pos, size, pos2, size2) {
                     pos2[0] + size2[0], pos2[1] + size2[1]);
 }
 
-
 function checkCollisions(player, objects, multiple) {
 	let object;
 	let collided = false;
@@ -85,7 +84,6 @@ function checkDoorCollisions(player) {
 		player.pos[0] = collided_door["start_col"]*32;
 		player.pos[1] = collided_door["start_row"]*32;
 	}
-	
 }
 
 
@@ -93,10 +91,13 @@ function checkDoorCollisions(player) {
 
 var current_item = null;
 
-function checkItemCollisions(player) {
+function checkItemCollisions(player, EKeySprite) {
 	let collided_item = checkCollisions(player, map.item_boxes, false);
 	
 	if (collided_item) {
+		EKeySprite.hide = false;
 		current_item = collided_item;
+	} else {
+		EKeySprite.hide = true;
 	}
 }

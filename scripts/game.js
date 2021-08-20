@@ -14,11 +14,15 @@ document.body.appendChild(canvas);
 var map = new GameMap();
 var camera = new Camera();
 var player = new PlayerSprite("assets/images/players.png", [50, canvas.height/2], [0, 32], [32, 32], 6, [[0,1,2], [3,4,5], [6,7,8], [9,10,11]])
+var EKeySprite = new Sprite("assets/images/ekeys.png", [0,0], [0, 0], [32, 32], 1, [[0,1],]);
+EKeySprite.hide = true;
+EKeySprite.moving = true;
 
 resources.load([
 	"assets/images/interiors.png",
 	"assets/images/interiors_floors_walls.png",
 	"assets/images/players.png",
+	"assets/images/ekeys.png",
 ]);
 
 resources.onReady(init);
@@ -64,14 +68,18 @@ function init() {
 
 function update(dt) {
 	handleMovementInput(player, dt);
-	handleInteractionInput(player, map);
+	handleInteractionInput(player, EKeySprite, map);
 	
 	player.update(dt);
+	
+	EKeySprite.pos = [player.pos[0], player.pos[1]-32];
+	EKeySprite.update(dt);
+	
 	updateEntities(dt, map.item_sprites);
 	
 	checkObstacleCollisions(player);
 	checkDoorCollisions(player);
-	checkItemCollisions(player);
+	checkItemCollisions(player, EKeySprite);
 }
 
 function updateEntities(dt, entities) {
@@ -86,6 +94,7 @@ function render() {
 	
 	renderEntities(map.item_sprites);
 	renderEntity(player);
+	renderEntity(EKeySprite);
 	
 	map.renderLayer(ctx, map.overlay);
 }

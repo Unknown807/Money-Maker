@@ -12,6 +12,7 @@ class Sprite {
 		this.frames = frames || [[0,],];
 		this.dir = dir || "horizontal";
 		this.moving = false;
+		this.hide = false;
 		
 		this._index = 0;
 		this._framesDir = 0;
@@ -26,6 +27,10 @@ class Sprite {
 	}
 	
 	render(ctx) {
+		if (this.hide) {
+			return
+		}
+		
 		let frame;
 		
 		if (this.speed > 0 && this.moving) {

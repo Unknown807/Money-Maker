@@ -80,7 +80,7 @@ function handleMovementInput(player, dt) {
 
 }
 
-function handleInteractionInput(player, map) {
+function handleInteractionInput(player, EKeySprite, map) {
 	
 	// Open overlay and game menu
 	if (input.isDown("ESCAPE") && !menuShown) {
@@ -103,7 +103,7 @@ function handleInteractionInput(player, map) {
 		let item = map.items[item_id];
 		
 		let item_stock = player.inventory.get(item["item_name"]) || 0;
-		player.inventory.set(item["item_name"], item_stock++);
+		player.inventory.set(item["item_name"], ++item_stock);
 		
 		data[map.map_name].push(item_id);
 		fs.writeFileSync("./removed_items.json", JSON.stringify(data));
@@ -112,6 +112,6 @@ function handleInteractionInput(player, map) {
 		map.item_sprites.delete(item_id);
 		current_item = null;
 		
-		console.log("Picked up item");
+		EKeySprite.hide = true;
 	}
 }
