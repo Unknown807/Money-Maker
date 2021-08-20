@@ -2,14 +2,14 @@ import json
 from PIL import Image
 import pytmx
 
-filename = "testmap2"
+filename = "map3"
 
 data = pytmx.TiledMap(filename+".tmx")
 
 new_map = {
     "map_width": data.width,
     "map_height": data.height
-}
+}   
 
 for layer in data.visible_layers:
 
@@ -25,21 +25,38 @@ for layer in data.visible_layers:
 
     else:
 
-        while True:
-            try:
-                node = layer.pop()
+        if layer.name == "obstacles":
+            while True:
+                try:
+                    node = layer.pop()
 
-                data.append({
-                    "x": node.x,
-                    "y": node.y,
-                    "width": node.width,
-                    "height": node.height
-                })
-            except IndexError:
-                break
+                    data.append({
+                        "x": node.x,
+                        "y": node.y,
+                        "width": node.width,
+                        "height": node.height
+                    })
+                except IndexError:
+                    break
+        elif layer.name == "doors":
+            while True:
+                try:
+                    node = layer.pop()
+
+                    data.append({
+                        "x": node.x,
+                        "y": node.y,
+                        "width": node.width,
+                        "height": node.height,
+                        "map_name": node.map_name,
+                        "row": node.row,
+                        "col": node.col
+                    })
+                except IndexError:
+                    break
         
     new_layer["data"] = data
-    new_map[layer.name.split("_")[0]] = new_layer
+    new_map[layer.name] = new_layer
 
-with open(filename+"_new.json", "w") as outfile:
+with open(filename+".json", "w") as outfile:
     json.dump(new_map, outfile)

@@ -29,6 +29,8 @@ function checkCollisions(player, objects) {
 }
 */
 
+// For checking obstacle layer collisions
+
 function checkObstacleCollisions(player) {
 	let collided = false;
 	let collided_obstacles = [];
@@ -73,6 +75,32 @@ function preventPassage(player, object) {
 	}
 	if (Math.abs(object["x"] - playerRight) < collision_tolerance) {
 		player.pos[0] -= Math.abs(object["x"] - playerRight)
+	}
+	
+}
+
+// For checking collision with doors (to change maps)
+
+function checkDoorCollisions(player) {
+	let collided = false;
+	
+	for (let i=0; i<map.doors.length; i++) {
+		let object = map.doors[i];
+		
+		collided = boxesCollide(player.pos, player.size,
+								[object["x"], object["y"]],
+								[object["width"], object["height"]]);
+								
+		if (collided) {
+			collided = object;
+			break;
+		}
+	}
+	
+	if (collided) {
+		map.updateData(collided["map_name"]);
+		player.pos[0] = collided["col"]*32;
+		player.pos[1] = collided["row"]*32;
 	}
 	
 }

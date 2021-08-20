@@ -12,8 +12,8 @@ class Camera {
 		ctx.setTransform(1,0,0,1,0,0);
 		ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 		
-		let mapImageWidth = Map.width*32;
-		let mapImageHeight = Map.height*32;
+		let mapImageWidth = map.width*32;
+		let mapImageHeight = map.height*32;
 		
 		this.camX = Math.round(clamp(-player.pos[0] + canvasWidth/2, -mapImageWidth, mapImageWidth));
 		this.camY = Math.round(clamp(-player.pos[1] + canvasHeight/2, -mapImageHeight, mapImageHeight));

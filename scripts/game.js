@@ -38,7 +38,7 @@ function main() {
 }
 
 function init() {
-	map.updateData("testmap2");
+	map.updateData("map1");
 	
 	lastTime = Date.now();
 	
@@ -58,6 +58,7 @@ function update(dt) {
 	updateEntities(dt);
 	
 	checkObstacleCollisions(player);
+	checkDoorCollisions(player);
 }
 
 function updateEntities(dt) {

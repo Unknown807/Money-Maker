@@ -9,6 +9,7 @@ class Map {
 		this.underlay = null;
 		this.overlay = null;
 		this.collision_boxes = [];
+		this.doors = [];
 	}
 	
 	// Set map data
@@ -24,6 +25,7 @@ class Map {
 		this.overlay = data["overlay"];
 		
 		this.collision_boxes = data["obstacles"]["data"];
+		this.doors = data["doors"]["data"];
 	}
 	
 	renderLayer(ctx, layer) {
