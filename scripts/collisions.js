@@ -113,7 +113,7 @@ var current_npc = null;
 function checkNPCCollisions(player, EKeySprite) {
 	let collided_npc = checkCollisions(player, map.npc_boxes, false);
 	
-	if (collided_npc) {
+	if (collided_npc && !menuShown) {
 		EKeySprite.hide = false;
 		current_npc = collided_npc;
 	} else {

@@ -2,7 +2,7 @@ import json
 from PIL import Image
 import pytmx
 
-filename = "map3"
+filename = "map1"
 
 data = pytmx.TiledMap(filename+".tmx")
 
@@ -79,7 +79,8 @@ for layer in data.visible_layers:
                         "y": node.y,
                         "width": node.width,
                         "height": node.height,
-                        "npc_id": node.npc_id
+                        "npc_id": node.npc_id,
+                        "speech_id": node.speech_id
                     })
                 except IndexError:
                     break

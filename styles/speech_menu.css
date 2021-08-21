@@ -1,0 +1,25 @@
+
+#speech-menu {
+	overflow-y: scroll;
+	
+	font-family: merienda;
+	font-size: 0.5em;
+	text-align: left;
+	width: 600px;
+	height: 150px;
+	top: calc( 256px + ( 150px / 2 ) );
+	
+	background: url("../assets/images/speech_bg.jpg") no-repeat;
+	border-radius: 10px;
+	background-size: 100% 100%;
+	
+	color: #302B2D;
+}
+
+#speech-menu::-webkit-scrollbar {
+	display: none;
+}
+
+#speech-menu > * {
+	margin: 10px;
+}

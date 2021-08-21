@@ -120,4 +120,33 @@ function handleInteractionInput(player, EKeySprite, map) {
 		
 		EKeySprite.hide = true;
 	}
+	
+	// Talk to npc that is currently in range
+	if (input.isDown("e") && !menuShown && current_npc != null) {
+		
+		menuShown = true;
+		
+		let npc_id = current_npc["npc_id"];
+		let npc_name = map.npcs[npc_id]["npc_name"];
+		let speech_id = current_npc["speech_id"];
+		
+		let rawdata = fs.readFileSync("./speech_counters.json");
+		let data = JSON.parse(rawdata);
+		
+		// Get the next lines of dialogue of the current NPC
+		let speech_counter = data[map.map_name][npc_id] || 0;
+		
+		/*
+		data[map.map_name][npc_id] = ++speech_counter;
+		fs.writeFileSync("./speech_counters.json", JSON.stringify(data));
+		*/
+		
+		// Get NPCs actual dialogue data
+		rawdata = fs.readFileSync("./assets/maps/"+map.map_name+"_speech.json");
+		data = JSON.parse(rawdata);
+		
+		let speech_data = data[speech_id][""+speech_counter]
+		
+		processSpeech(player.inventory, speech_data, npc_name, npc_id);
+	}
 }

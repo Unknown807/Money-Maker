@@ -45,9 +45,11 @@ function main() {
 function init() {
 	try {
 		fs.writeFileSync("removed_items.json", JSON.stringify({
-			"map1": [],
-			"map2": [],
-			"map3": [],
+			"map1": [], "map2": [], "map3": [],
+		}));
+		
+		fs.writeFileSync("speech_counters.json", JSON.stringify({
+			"map1": {}, "map2": {}, "map3": {},
 		}));
 	} catch (err) {
 		console.error(err);
@@ -100,8 +102,8 @@ function render() {
 	map.renderLayer(ctx, map.underlay);
 	
 	renderEntities(map.item_sprites);
-	renderEntities(map.npc_sprites);
 	renderEntity(player);
+	renderEntities(map.npc_sprites);
 	renderEntity(EKeySprite);
 	
 	map.renderLayer(ctx, map.overlay);
