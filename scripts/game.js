@@ -55,6 +55,7 @@ function init() {
 	
 	map.updateData("map1");
 	map.createItemSprites();
+	map.createNPCSprites();
 	lastTime = Date.now();
 	
 	// Show title screen first
@@ -78,10 +79,14 @@ function update(dt) {
 	EKeySprite.update(dt);
 	
 	updateEntities(dt, map.item_sprites);
+	updateEntities(dt, map.npc_sprites);
 	
 	checkObstacleCollisions(player);
 	checkDoorCollisions(player);
-	checkItemCollisions(player, EKeySprite);
+	
+	if (!checkItemCollisions(player, EKeySprite)) {
+		checkNPCCollisions(player, EKeySprite);
+	}
 }
 
 function updateEntities(dt, entities) {
@@ -95,6 +100,7 @@ function render() {
 	map.renderLayer(ctx, map.underlay);
 	
 	renderEntities(map.item_sprites);
+	renderEntities(map.npc_sprites);
 	renderEntity(player);
 	renderEntity(EKeySprite);
 	

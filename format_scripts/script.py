@@ -69,6 +69,20 @@ for layer in data.visible_layers:
                     })
                 except IndexError:
                     break
+        elif layer.name == "npcs":
+            while True:
+                try:
+                    node = layer.pop()
+
+                    data.append({
+                        "x": node.x,
+                        "y": node.y,
+                        "width": node.width,
+                        "height": node.height,
+                        "npc_id": node.npc_id
+                    })
+                except IndexError:
+                    break
         
     new_layer["data"] = data
     new_map[layer.name] = new_layer

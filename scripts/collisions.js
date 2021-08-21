@@ -81,6 +81,7 @@ function checkDoorCollisions(player) {
 	if (collided_door) {
 		map.updateData(collided_door["map_name"]);
 		map.createItemSprites();
+		map.createNPCSprites();
 		player.pos[0] = collided_door["start_col"]*32;
 		player.pos[1] = collided_door["start_row"]*32;
 	}
@@ -99,5 +100,26 @@ function checkItemCollisions(player, EKeySprite) {
 		current_item = collided_item;
 	} else {
 		EKeySprite.hide = true;
+		current_item = null;
 	}
+	
+	return collided_item;
+}
+
+// Check whether you are in range to talk to an NPC
+
+var current_npc = null;
+
+function checkNPCCollisions(player, EKeySprite) {
+	let collided_npc = checkCollisions(player, map.npc_boxes, false);
+	
+	if (collided_npc) {
+		EKeySprite.hide = false;
+		current_npc = collided_npc;
+	} else {
+		EKeySprite.hide = true;
+		current_npc = null;
+	}
+	
+	return collided_npc;
 }
