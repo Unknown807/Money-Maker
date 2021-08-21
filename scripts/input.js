@@ -136,17 +136,17 @@ function handleInteractionInput(player, EKeySprite, map) {
 		// Get the next lines of dialogue of the current NPC
 		let speech_counter = data[map.map_name][npc_id] || 0;
 		
-		/*
-		data[map.map_name][npc_id] = ++speech_counter;
-		fs.writeFileSync("./speech_counters.json", JSON.stringify(data));
-		*/
-		
 		// Get NPCs actual dialogue data
 		rawdata = fs.readFileSync("./assets/maps/"+map.map_name+"_speech.json");
 		data = JSON.parse(rawdata);
+		let speech_data = data[speech_id][""+speech_counter];
 		
-		let speech_data = data[speech_id][""+speech_counter]
+		speech_counter = processSpeech(player, speech_data, speech_counter, npc_name, npc_id);
 		
-		processSpeech(player.inventory, speech_data, npc_name, npc_id);
+		rawdata = fs.readFileSync("./speech_counters.json");
+		data = JSON.parse(rawdata);
+		
+		data[map.map_name][npc_id] = speech_counter;
+		fs.writeFileSync("./speech_counters.json", JSON.stringify(data));
 	}
 }

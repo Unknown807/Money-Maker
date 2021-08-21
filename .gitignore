@@ -1,3 +1,4 @@
 node_modules/
 removed_items.json
 speech_counters.json
+speech_to_json.py

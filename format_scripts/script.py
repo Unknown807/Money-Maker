@@ -2,7 +2,7 @@ import json
 from PIL import Image
 import pytmx
 
-filename = "map1"
+filename = "map2"
 
 data = pytmx.TiledMap(filename+".tmx")
 
