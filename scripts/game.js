@@ -18,14 +18,24 @@ var EKeySprite = new Sprite("assets/images/ekeys.png", [0,0], [0, 0], [32, 32], 
 EKeySprite.hide = true;
 EKeySprite.moving = true;
 
-resources.load([
-	"assets/images/interiors.png",
-	"assets/images/interiors_floors_walls.png",
-	"assets/images/players.png",
-	"assets/images/ekeys.png",
+sounds.load([
+	{id: "footstep_grass", src: "assets/sounds/footstep_grass.wav"},
+	{id: "jazz_bg", src: "assets/sounds/jazz_bg.wav"},
 ]);
 
-resources.onReady(init);
+sounds.onReady(init_resources);
+
+
+function init_resources() {
+	resources.load([
+		"assets/images/interiors.png",
+		"assets/images/interiors_floors_walls.png",
+		"assets/images/players.png",
+		"assets/images/ekeys.png",
+	]);
+
+	resources.onReady(init);	
+}
 
 // The game loop
 
@@ -66,6 +76,7 @@ function init() {
 	document.getElementById("cross-button").style.display = "none";
 	toggleMenus("block");
 	
+	sounds.playBGSound("jazz_bg");
 	updateInventoryMenu(player.inventory);
 	
 	main();

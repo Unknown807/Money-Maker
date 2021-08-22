@@ -7,7 +7,7 @@
     // Load an image url or an array of image urls
     function load(urlOrArr) {
         if(urlOrArr instanceof Array) {
-            urlOrArr.forEach(function(url) {
+            urlOrArr.forEach((url) => {
                 _load(url);
             });
         }
@@ -21,12 +21,12 @@
             return resourceCache[url];
         }
         else {
-            var img = new Image();
+            let img = new Image();
             img.onload = function() {
                 resourceCache[url] = img;
                 
                 if(isReady()) {
-                    readyCallbacks.forEach(function(func) { func(); });
+                    readyCallbacks.forEach((func) => { func(); });
                 }
             };
             resourceCache[url] = false;
@@ -39,8 +39,8 @@
     }
 
     function isReady() {
-        var ready = true;
-        for(var k in resourceCache) {
+        let ready = true;
+        for(let k in resourceCache) {
             if(resourceCache.hasOwnProperty(k) &&
                !resourceCache[k]) {
                 ready = false;
