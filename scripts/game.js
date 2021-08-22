@@ -13,7 +13,7 @@ document.body.appendChild(canvas);
 
 var map = new GameMap();
 var camera = new Camera();
-var player = new PlayerSprite("assets/images/players.png", [50, canvas.height/2], [0, 32], [32, 32], 6, [[0,1,2], [3,4,5], [6,7,8], [9,10,11]])
+var player = new PlayerSprite("assets/images/players.png", [50, canvas.height/2], [0, 96], [32, 32], 6, [[0,1,2], [3,4,5], [6,7,8], [9,10,11]])
 var EKeySprite = new Sprite("assets/images/ekeys.png", [0,0], [0, 0], [32, 32], 2, [[0,1],]);
 EKeySprite.hide = true;
 EKeySprite.moving = true;
@@ -21,7 +21,7 @@ EKeySprite.moving = true;
 sounds.load([
 	{id: "footstep_grass", src: "assets/sounds/footstep_grass.wav"},
 	{id: "jazz_bg", src: "assets/sounds/jazz_bg.wav"},
-	{id: "beep", src: "assets/sounds/beep.wav"}
+	{id: "menu_click", src: "assets/sounds/menu_click.wav"}
 ]);
 
 sounds.onReady(init_resources);

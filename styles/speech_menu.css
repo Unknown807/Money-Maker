@@ -14,6 +14,7 @@
 	background-size: 100% 100%;
 	
 	color: #302B2D;
+	cursor: pointer;
 }
 
 #speech-menu::-webkit-scrollbar {

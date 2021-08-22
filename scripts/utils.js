@@ -1,3 +1,4 @@
+const { webFrame } = require("electron");
 const fs = require("fs");
 
 var requestAnimFrame = (function(){
