@@ -109,14 +109,18 @@
  <objectgroup id="7" name="items">
   <object id="13" x="576" y="480" width="96.6667" height="96">
    <properties>
+    <property name="item_col" type="int" value="19"/>
     <property name="item_id" value="0"/>
+    <property name="item_row" type="int" value="16"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="8" name="npcs">
   <object id="14" x="863.333" y="320" width="98.6667" height="95.3333">
    <properties>
+    <property name="npc_col" type="int" value="28"/>
     <property name="npc_id" value="0"/>
+    <property name="npc_row" type="int" value="11"/>
     <property name="speech_id" value="0"/>
    </properties>
   </object>

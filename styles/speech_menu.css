@@ -9,7 +9,7 @@
 	height: 150px;
 	top: calc( 256px + ( 150px / 2 ) );
 	
-	background: url("../assets/images/speech_bg.jpg") no-repeat;
+	background: url("../assets/images/speech_bg.png") no-repeat;
 	border-radius: 10px;
 	background-size: 100% 100%;
 	
@@ -21,5 +21,5 @@
 }
 
 #speech-menu > * {
-	margin: 10px;
+	margin: 20px;
 }

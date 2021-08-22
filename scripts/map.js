@@ -67,7 +67,7 @@ class GameMap {
 		// Some rooms don't have any items so there is no corresponding items json file for the map
 		
 		if (this.item_boxes.length > 0) {
-			rawdata = fs.readFileSync("./assets/maps/"+filename+"_items.json");
+			rawdata = fs.readFileSync("./assets/maps/items_pool.json");
 			data = JSON.parse(rawdata);
 			this.items = data;
 		}
@@ -80,7 +80,7 @@ class GameMap {
 			item = this.items[object["item_id"]];
 			
 			item_sprite = new Sprite("assets/images/"+item["tileset"],
-									[item["item_col"]*32, item["item_row"]*32],
+									[object["col"]*32, object["row"]*32],
 									[item["tile_col"]*32, item["tile_row"]*32],
 									[32, 32]);
 			
@@ -97,9 +97,9 @@ class GameMap {
 			npc = this.npcs[object["npc_id"]];
 			
 			npc_sprite = new Sprite("assets/images/"+npc["tileset"],
-									[npc["npc_col"]*32, npc["npc_row"]*32],
+									[object["col"]*32, object["row"]*32],
 									[npc["tile_col"]*32, npc["tile_row"]*32],
-									[32, 32],
+									[npc["tile_width"], npc["tile_height"]],
 									npc["anim_speed"],
 									[npc["anim_frames"],],
 									npc["anim_dir"]);

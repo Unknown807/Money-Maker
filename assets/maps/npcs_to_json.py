@@ -4,12 +4,12 @@ map_name = "map2"
 
 items = [
     {
-	"npc_row": 10,
-	"npc_col": 3,
-	"npc_name": "Mr. Bo Buddy",
+	"npc_name": "Mr. BO BUDDY",
 	"tileset": "players.png",
 	"tile_row": 4,
 	"tile_col": 9,
+        "tile_width": 32,
+        "tile_height": 32,
         "anim_frames": [0,1,2],
         "anim_dir": "horizontal",
         "anim_speed": 6
