@@ -5,7 +5,12 @@
 	var soundReadyCallbacks = [];
 	
 	var currentBGSound;
-
+	var currentBGVolume = 1;
+	
+	var currentSound;
+	var currentSoundID;
+	var currentSoundVolume = 1;
+	
 	// For registering all provided sounds
 
     function load(soundsArr) {
@@ -35,11 +40,29 @@
 		if (currentBGSound != null) {
 			currentBGSound.stop();
 		}
-		currentBGSound = createjs.Sound.play(sound_id, {"loop":-1});
-		currentBGSound.volume = 0.5;
+		currentBGSound = createjs.Sound.play(sound_id, {loop:-1});
+		currentBGSound.volume = currentBGVolume;
+	}
+	
+	function setBGSoundVolume(volume) {
+		currentBGSound.volume = volume;
+		currentBGVolume = volume;
+	}
+	
+	function setSoundVolume(volume) {
+		currentSound.volume = volume;
+		currentSoundVolume = volume;
 	}
 	
 	function playSound(sound_id) {
+		if (sound_id == currentSoundID) {
+			currentSound.play();
+		} else {
+			currentSoundID = sound_id;
+			currentSound = createjs.Sound.play(sound_id);
+		}
+		
+		currentSound.volume = currentSoundVolume
 	}
 
     window.sounds = { 
@@ -47,6 +70,8 @@
         onReady: onReady,
         isReady: isReady,
 		playBGSound: playBGSound,
-		playSound: playSound
+		playSound: playSound,
+		setBGSoundVolume: setBGSoundVolume,
+		setSoundVolume: setSoundVolume
     };
 })();

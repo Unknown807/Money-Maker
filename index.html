@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="styles/transition.css" />
 	<link rel="stylesheet" href="styles/menu_buttons.css" />
 	<link rel="stylesheet" href="styles/inventory_menu.css" />
+	<link rel="stylesheet" href="styles/settings_menu.css" />
 	<link rel="stylesheet" href="styles/speech_menu.css" />
   </head>
   
@@ -38,7 +39,22 @@
 	</div>
 	
 	<div id="settings-menu" class="game-menu">
-		<h1>Settings</h1>
+		<form id="settings-form">
+			<div><label class="menu-label" for="bg-sound-slider">Background Music</label></div>
+			<div><input class="sound-slider" id="bg-sound-slider" type="range" min="0" max="100" value="50" /></div>
+			
+			<div><label class="menu-label" for="general-sound-slider">All Sounds</label></div>
+			<div><input class="sound-slider" id="general-sound-slider" type="range" min="0" max="100" value="50" /></div>
+		
+			<div><label class="menu-label" for="zoom-select">Zoom Level</label></div>
+			<div>
+				<select class="menu-label" id="zoom-select">
+					<option value="1">x1</option>
+					<option value="2">x2</option>
+					<option value="3">x3</option>
+				</select>
+			</div>
+		</form>
 	</div>
 	
 	<div id="inventory-menu" class="game-menu">

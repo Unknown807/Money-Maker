@@ -21,6 +21,7 @@ EKeySprite.moving = true;
 sounds.load([
 	{id: "footstep_grass", src: "assets/sounds/footstep_grass.wav"},
 	{id: "jazz_bg", src: "assets/sounds/jazz_bg.wav"},
+	{id: "beep", src: "assets/sounds/beep.wav"}
 ]);
 
 sounds.onReady(init_resources);

@@ -13,27 +13,32 @@ function gotoMenu() {
 
 // Close from whatever menu you're on
 document.getElementById("cross-button").addEventListener("click", function() {
+	sounds.playSound("beep");
 	toggleMenus("none");
 	menuShown = false;
 });
 
 document.getElementById("inventory-button").addEventListener("click", function() {
+	sounds.playSound("beep");
 	currentMenu = "inventory";
 	gotoMenu();
 });
 
 document.getElementById("settings-button").addEventListener("click", function() {
+	sounds.playSound("beep");
 	currentMenu = "settings";
 	gotoMenu();
 });
 
 document.getElementById("credits-button").addEventListener("click", function() {
+	sounds.playSound("beep");
 	currentMenu = "credits";
 	gotoMenu();
 });
 
 //Go back to options menu
 document.getElementById("back-button").addEventListener("click", function() {
+	sounds.playSound("beep");
 	document.getElementById(currentMenu+"-menu").style.display = "none";
 	document.getElementById("options-menu").style.display = "block";
 	document.getElementById("back-button").style.display = "none";
@@ -41,6 +46,7 @@ document.getElementById("back-button").addEventListener("click", function() {
 });
 
 document.getElementById("play-button").addEventListener("click", function() {
+	sounds.playSound("beep");
 	toggleMenus("none");
 	menuShown = false;
 	
