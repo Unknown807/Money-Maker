@@ -26,6 +26,10 @@ class Sprite {
 		this._framesDir = framesDir;
 	}
 	
+	getFramesDir() {
+		return this._framesDir;
+	}
+	
 	render(ctx) {
 		if (this.hide) {
 			return

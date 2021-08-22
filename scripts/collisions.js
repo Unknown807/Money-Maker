@@ -79,6 +79,12 @@ function checkDoorCollisions(player) {
 	let collided_door = checkCollisions(player, map.doors, false);
 	
 	if (collided_door) {
+		let transition = document.getElementById("transition-overlay");
+		let new_transition = transition.cloneNode(true);
+		
+		new_transition.style.animationDuration = "0.25s";
+		transition.parentNode.replaceChild(new_transition, transition);
+		
 		map.updateData(collided_door["map_name"]);
 		map.createItemSprites();
 		map.createNPCSprites();

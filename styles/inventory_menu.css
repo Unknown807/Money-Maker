@@ -29,6 +29,7 @@
 }
 
 .inventory-item > :first-child {
+	text-transform: capitalize;
 	margin-left: 10px;
 }
 

@@ -1,5 +1,5 @@
 
-.game-menu, #game-overlay, #menu-area {
+.game-menu, #game-overlay, #menu-area, #transition-overlay {
     margin: auto;
     width: 640px;
     height: 512px;
