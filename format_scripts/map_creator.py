@@ -1,7 +1,7 @@
 import json
 import pytmx
 
-filename = "map3"
+filename = "map1"
 bg_sound = "jazz_bg" # + extensions
 footstep_sound = "footstep_wood"
 
@@ -69,6 +69,7 @@ for layer in data.visible_layers:
                         "width": node.width,
                         "height": node.height,
                         "item_id": node.item_id,
+                        "item_qty": node.item_qty,
                         "row": node.item_row,
                         "col": node.item_col,
                     })

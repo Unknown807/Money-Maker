@@ -107,9 +107,9 @@ function handleInteractionInput(player, EKeySprite, map) {
 		let item_id = current_item["item_id"];
 		let item = map.items[item_id];
 		
-		// Item amount goes up by 0 + 1 if its new or the previous value + 1
+		// Item amount goes up by 0 + qty if its new or the previous value + qty
 		let item_stock = player.inventory.get(item["item_name"]) || 0;
-		player.inventory.set(item["item_name"], ++item_stock);
+		player.inventory.set(item["item_name"], item_stock+current_item["item_qty"]);
 		
 		// Add picked up item to removed_items so it can't be picked up again
 		data[map.map_name].push(item_id);
