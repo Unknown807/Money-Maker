@@ -3,13 +3,17 @@ from PIL import Image
 import pytmx
 
 filename = "map1"
+bg_sound = "ambient_bg" # + extensions
+footstep_sound = "footstep_grass"
 
 data = pytmx.TiledMap(filename+".tmx")
 
 new_map = {
     "map_name": filename,
     "map_width": data.width,
-    "map_height": data.height
+    "map_height": data.height,
+    "bg_sound": bg_sound,
+    "footstep_sound": footstep_sound
 }   
 
 for layer in data.visible_layers:

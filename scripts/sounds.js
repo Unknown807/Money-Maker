@@ -5,6 +5,7 @@
 	var soundReadyCallbacks = [];
 	
 	var currentBGSound;
+	var currentBGSoundID;
 	var currentBGVolume = 1;
 	
 	var currentSound;
@@ -37,6 +38,12 @@
 	// For playing sounds
 	
 	function playBGSound(sound_id) {
+		if (sound_id == currentBGSoundID) {
+			return;
+		}
+		
+		currentBGSoundID = sound_id;
+		
 		if (currentBGSound != null) {
 			currentBGSound.stop();
 		}

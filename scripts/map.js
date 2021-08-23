@@ -23,7 +23,7 @@ class GameMap {
 	}
 	
 	// Set map data
-	updateData(filename) {
+	updateData(player, filename) {
 		let rawdata = fs.readFileSync("./assets/maps/"+filename+".json");
 		let data = JSON.parse(rawdata);
 		
@@ -41,6 +41,12 @@ class GameMap {
 		this.npc_boxes = data["npcs"]["data"];
 		this.item_sprites = new Map();
 		this.npc_sprites = new Map();
+		
+		// play sound files for map
+		
+		player.footStepSoundID = data["footstep_sound"];
+		sounds.playBGSound(data["bg_sound"]);
+		
 		// Some rooms don't have any npcs so there is no corresponding npcs json file for the map
 		
 		if (this.npc_boxes.length > 0) {
@@ -71,6 +77,7 @@ class GameMap {
 			data = JSON.parse(rawdata);
 			this.items = data;
 		}
+		
 	}
 	
 	createItemSprites() {
@@ -79,7 +86,7 @@ class GameMap {
 			object = this.item_boxes[i];
 			item = this.items[object["item_id"]];
 			
-			item_sprite = new Sprite("assets/images/"+item["tileset"],
+			item_sprite = new Sprite("assets/images/tilesets/"+item["tileset"],
 									[object["col"]*32, object["row"]*32],
 									[item["tile_col"]*32, item["tile_row"]*32],
 									[32, 32]);
@@ -96,7 +103,7 @@ class GameMap {
 			object = this.npc_boxes[i];
 			npc = this.npcs[object["npc_id"]];
 			
-			npc_sprite = new Sprite("assets/images/"+npc["tileset"],
+			npc_sprite = new Sprite("assets/images/tilesets/"+npc["tileset"],
 									[object["col"]*32, object["row"]*32],
 									[npc["tile_col"]*32, npc["tile_row"]*32],
 									[npc["tile_width"], npc["tile_height"]],
@@ -110,7 +117,7 @@ class GameMap {
 	}
 	
 	renderLayer(ctx, layer) {
-		let image = "assets/images/"+layer["tileset"];
+		let image = "assets/images/tilesets/"+layer["tileset"];
 		
 		for (let i=0; i<layer["data"].length; i++) {
 			let tile = layer["data"][i];

@@ -55,24 +55,28 @@ function handleMovementInput(player, dt) {
 	player.moving = false;
 	
 	if ((input.isDown("DOWN") || input.isDown("s")) && !menuShown) {
+		player.playFootStep();
 		player.pos[1] += player.movementSpeed * dt;
 		player.setFramesDir(0);
 		player.moving = true;
 	}
 	
 	if ((input.isDown("UP") || input.isDown("w")) && !menuShown) {
+		player.playFootStep();
 		player.pos[1] -= player.movementSpeed * dt;
 		player.setFramesDir(2);
 		player.moving = true;
 	}
 	
 	if ((input.isDown("LEFT") || input.isDown("a")) && !menuShown) {
+		player.playFootStep();
 		player.pos[0] -= player.movementSpeed * dt;
 		player.setFramesDir(3);
 		player.moving = true;
 	}
 	
 	if ((input.isDown("RIGHT") || input.isDown("d")) && !menuShown) {
+		player.playFootStep();
 		player.pos[0] += player.movementSpeed * dt;
 		player.setFramesDir(1);
 		player.moving = true;

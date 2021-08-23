@@ -8,7 +8,7 @@
     function load(urlOrArr) {
         if(urlOrArr instanceof Array) {
             urlOrArr.forEach((url) => {
-                _load(url);
+				_load(url);
             });
         }
         else {

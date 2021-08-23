@@ -13,15 +13,17 @@ document.body.appendChild(canvas);
 
 var map = new GameMap();
 var camera = new Camera();
-var player = new PlayerSprite("assets/images/players.png", [50, canvas.height/2], [0, 96], [32, 32], 6, [[0,1,2], [3,4,5], [6,7,8], [9,10,11]])
+var player = new PlayerSprite("assets/images/tilesets/players.png", [50, canvas.height/2], [0, 32], [32, 32], 6, [[0,1,2], [3,4,5], [6,7,8], [9,10,11]])
 var EKeySprite = new Sprite("assets/images/ekeys.png", [0,0], [0, 0], [32, 32], 2, [[0,1],]);
 EKeySprite.hide = true;
 EKeySprite.moving = true;
 
 sounds.load([
 	{id: "footstep_grass", src: "assets/sounds/footstep_grass.wav"},
+	{id: "footstep_wood", src: "assets/sounds/footstep_wood.wav"},
 	{id: "jazz_bg", src: "assets/sounds/jazz_bg.wav"},
-	{id: "menu_click", src: "assets/sounds/menu_click.wav"}
+	{id: "ambient_bg", src: "assets/sounds/ambient_bg.wav"},
+	{id: "menu_click", src: "assets/sounds/menu_click.wav"},
 ]);
 
 sounds.onReady(init_resources);
@@ -29,13 +31,13 @@ sounds.onReady(init_resources);
 
 function init_resources() {
 	resources.load([
-		"assets/images/interiors.png",
-		"assets/images/interiors_floors_walls.png",
-		"assets/images/players.png",
+		"assets/images/tilesets/interiors.png",
+		"assets/images/tilesets/interiors_floors_walls.png",
+		"assets/images/tilesets/players.png",
 		"assets/images/ekeys.png",
 	]);
 
-	resources.onReady(init);	
+	resources.onReady(init);
 }
 
 // The game loop
@@ -53,7 +55,7 @@ function main() {
 	requestAnimFrame(main);
 }
 
-function init() {
+function init() {	
 	try {
 		fs.writeFileSync("removed_items.json", JSON.stringify({
 			"map1": [], "map2": [], "map3": [],
@@ -66,7 +68,7 @@ function init() {
 		console.error(err);
 	}
 	
-	map.updateData("map1");
+	map.updateData(player, "map1");
 	map.createItemSprites();
 	map.createNPCSprites();
 	lastTime = Date.now();
@@ -77,7 +79,6 @@ function init() {
 	document.getElementById("cross-button").style.display = "none";
 	toggleMenus("block");
 	
-	sounds.playBGSound("jazz_bg");
 	updateInventoryMenu(player.inventory);
 	
 	main();

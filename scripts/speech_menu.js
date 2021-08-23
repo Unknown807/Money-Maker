@@ -7,7 +7,8 @@ var maxLines = 0;
 function displaySpeech() {	
 	let container = document.getElementById("speech-text-display")
 	let current_speaker = currentLines[currentLineIndex][0] == "player" ? "YOU" : currentNPCName.toUpperCase();
-	container.textContent = current_speaker+": "+currentLines[currentLineIndex][1];
+	current_speaker = "<span style='color:#CC5801'>"+current_speaker+"</span>";
+	container.innerHTML = current_speaker+": "+currentLines[currentLineIndex][1];
 	
 	currentLineIndex++;
 }
