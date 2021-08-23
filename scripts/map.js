@@ -12,6 +12,10 @@ class GameMap {
 		this.collision_boxes = [];
 		this.doors = [];
 		
+		this.animated_tile_boxes = [];
+		this.animated_tiles = null;
+		this.animated_tile_sprites = new Map();
+		
 		this.item_boxes = [];
 		this.items = null;
 		this.item_sprites = new Map();
@@ -37,8 +41,12 @@ class GameMap {
 		
 		this.collision_boxes = data["obstacles"]["data"];
 		this.doors = data["doors"]["data"];
+		
+		this.animated_tile_boxes = data["animated_tiles"]["data"];
 		this.item_boxes	= data["items"]["data"];
 		this.npc_boxes = data["npcs"]["data"];
+		
+		this.animated_tile_sprites = new Map();
 		this.item_sprites = new Map();
 		this.npc_sprites = new Map();
 		
@@ -46,6 +54,14 @@ class GameMap {
 		
 		player.footStepSoundID = data["footstep_sound"];
 		sounds.playBGSound(data["bg_sound"]);
+		
+		// Some rooms don't have any animated tiles and so don't need to use the animated tiles pool
+		
+		if (this.animated_tiles == null) {
+			rawdata = fs.readFileSync("./assets/maps/animated_tiles_pool.json");
+			data = JSON.parse(rawdata);
+			this.animated_tiles = data;
+		}
 		
 		// Some rooms don't have any npcs so there is no corresponding npcs json file for the map
 		
@@ -72,12 +88,33 @@ class GameMap {
 		
 		// Some rooms don't have any items so there is no corresponding items json file for the map
 		
-		if (this.item_boxes.length > 0) {
+		if (this.items == null) {
 			rawdata = fs.readFileSync("./assets/maps/items_pool.json");
 			data = JSON.parse(rawdata);
 			this.items = data;
 		}
 		
+	}
+	
+	createAnimatedTiles() {
+		let object, tile, animated_sprite;
+		for (let i=0; i<this.animated_tile_boxes.length; i++) {
+			object = this.animated_tile_boxes[i];
+			tile = this.animated_tiles[object["animated_tile_id"]];
+			
+			animated_sprite = new Sprite("assets/images/tilesets/"+tile["tileset"],
+									[object["col"]*32, object["row"]*32],
+									[tile["tile_col"]*32, tile["tile_row"]*32],
+									[tile["tile_width"], tile["tile_height"]],
+									tile["anim_speed"],
+									[tile["anim_frames"],],
+									tile["anim_dir"]);
+			
+			animated_sprite.moving = true;
+			this.animated_tile_sprites.set(object["animated_tile_id"], animated_sprite);
+		}
+		
+		this.animated_tile_boxes = null;
 	}
 	
 	createItemSprites() {

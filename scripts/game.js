@@ -69,6 +69,7 @@ function init() {
 	}
 	
 	map.updateData(player, "map1");
+	map.createAnimatedTiles();
 	map.createItemSprites();
 	map.createNPCSprites();
 	lastTime = Date.now();
@@ -93,6 +94,7 @@ function update(dt) {
 	EKeySprite.pos = [player.pos[0], player.pos[1]-32];
 	EKeySprite.update(dt);
 	
+	updateEntities(dt, map.animated_tile_sprites);
 	updateEntities(dt, map.item_sprites);
 	updateEntities(dt, map.npc_sprites);
 	
@@ -116,6 +118,7 @@ function render() {
 	
 	renderEntities(map.item_sprites);
 	renderEntity(player);
+	renderEntities(map.animated_tile_sprites);
 	renderEntities(map.npc_sprites);
 	renderEntity(EKeySprite);
 	

@@ -1,10 +1,9 @@
 import json
-from PIL import Image
 import pytmx
 
-filename = "map1"
-bg_sound = "ambient_bg" # + extensions
-footstep_sound = "footstep_grass"
+filename = "map3"
+bg_sound = "jazz_bg" # + extensions
+footstep_sound = "footstep_wood"
 
 data = pytmx.TiledMap(filename+".tmx")
 
@@ -89,6 +88,22 @@ for layer in data.visible_layers:
                         "speech_id": node.speech_id,
                         "row": node.npc_row,
                         "col": node.npc_col,
+                    })
+                except IndexError:
+                    break
+        elif layer.name == "animated_tiles":
+            while True:
+                try:
+                    node = layer.pop()
+
+                    data.append({
+                        "x": node.x,
+                        "y": node.y,
+                        "width": node.width,
+                        "height": node.height,
+                        "animated_tile_id": node.animated_tile_id,
+                        "row": node.tile_row,
+                        "col": node.tile_col
                     })
                 except IndexError:
                     break

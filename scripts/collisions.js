@@ -86,6 +86,7 @@ function checkDoorCollisions(player) {
 		transition.parentNode.replaceChild(new_transition, transition);
 		
 		map.updateData(player, collided_door["map_name"]);
+		map.createAnimatedTiles();
 		map.createItemSprites();
 		map.createNPCSprites();
 		player.pos[0] = collided_door["start_col"]*32;
