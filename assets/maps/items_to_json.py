@@ -1,12 +1,16 @@
 import json
 
+##items = [
+##    {
+##	"item_name": "magic card",
+##	"tileset": "interiors.png",
+##	"tile_row": 16,
+##	"tile_col": 0,
+##    },
+##]
+
 items = [
-    {
-	"item_name": "magic card",
-	"tileset": "interiors.png",
-	"tile_row": 16,
-	"tile_col": 0,
-    },
+    {},
 ]
 
 items_formatted = {}
