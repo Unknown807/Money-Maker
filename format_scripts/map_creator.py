@@ -103,8 +103,6 @@ for layer in data.visible_layers:
                         "width": node.width,
                         "height": node.height,
                         "animated_tile_id": node.animated_tile_id,
-                        "row": node.tile_row,
-                        "col": node.tile_col
                     })
                 except IndexError:
                     break

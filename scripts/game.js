@@ -143,9 +143,9 @@ function render() {
 	renderEntities(map.npc_sprites);
 	renderEntity(player);
 	renderEntities(map.animated_tile_sprites);
-	renderEntity(EKeySprite);
 	
 	map.renderLayer(ctx, map.overlay);
+	renderEntity(EKeySprite);
 }
 
 function renderEntities(entities) {

@@ -103,7 +103,7 @@ class GameMap {
 			tile = this.animated_tiles[object["animated_tile_id"]];
 			
 			animated_sprite = new Sprite("assets/images/tilesets/"+tile["tileset"],
-									[object["col"]*32, object["row"]*32],
+									[object["x"], object["y"]],
 									[tile["tile_col"]*32, tile["tile_row"]*32],
 									[tile["tile_width"], tile["tile_height"]],
 									tile["anim_speed"],

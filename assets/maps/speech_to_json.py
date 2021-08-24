@@ -202,7 +202,7 @@ items = [
                     ["player", "Alright"]
                 ],
             "missing": [
-                    ["npc", "I need an unmarked badge from you if you wish to join the Black team, if you're already part of a team then read a book bad choices haha!"],
+                    ["npc", "I need an unmarked badge from you if you wish to join the Black team, if you're already part of a team then read a book about bad choices haha!"],
                     ["player", "Right..."],
                 ]
             },
