@@ -10,7 +10,12 @@ import json
 ##]
 
 items = [
-    {},
+    {
+        "item_name": "unmarked badge",
+        "tileset": "items.png",
+        "tile_row": 0,
+        "tile_col": 13
+    }
 ]
 
 items_formatted = {}

@@ -13,7 +13,7 @@ document.body.appendChild(canvas);
 
 var map = new GameMap();
 var camera = new Camera();
-var player = new PlayerSprite("assets/images/tilesets/player.png", [50, canvas.height/2], [0, 0], [32, 32], 6, [[0,1], [2,3], [4,5], [6,7]])
+var player = new PlayerSprite("assets/images/tilesets/npcs1.png", [50, canvas.height/2], [0, 0], [32, 32], 6, [[0,1], [2,3], [4,5], [6,7]])
 var EKeySprite = new Sprite("assets/images/ekeys.png", [0,0], [0, 0], [32, 32], 2, [[0,1],]);
 EKeySprite.hide = true;
 EKeySprite.moving = true;
@@ -39,20 +39,20 @@ function init_resources() {
 		"assets/images/tilesets/chicken_eat.png",
 		"assets/images/tilesets/clocks.png",
 		"assets/images/tilesets/cow_eat.png",
-		"assets/images/tilesets/npcs.png",
+		"assets/images/tilesets/npcs1.png",
 		"assets/images/tilesets/exteriors1.png",
 		"assets/images/tilesets/exteriors2.png",
 		"assets/images/tilesets/exteriors3.png",
 		"assets/images/tilesets/exteriors4.png",
 		"assets/images/tilesets/farm_misc.png",
 		"assets/images/tilesets/gems.png",
+		"assets/images/tilesets/items.png",
 		"assets/images/tilesets/interiors1.png",
 		"assets/images/tilesets/interiors2.png",
 		"assets/images/tilesets/interiors3.png",
 		"assets/images/tilesets/llama_eat.png",
 		"assets/images/tilesets/monsters.png",
 		"assets/images/tilesets/pig_eat.png",
-		"assets/images/tilesets/player.png",
 		"assets/images/tilesets/sheep_eat.png",
 		"assets/images/tilesets/signs.png",
 		"assets/images/tilesets/slimes.png",
@@ -140,9 +140,9 @@ function render() {
 	map.renderLayer(ctx, map.underlay);
 	
 	renderEntities(map.item_sprites);
+	renderEntities(map.npc_sprites);
 	renderEntity(player);
 	renderEntities(map.animated_tile_sprites);
-	renderEntities(map.npc_sprites);
 	renderEntity(EKeySprite);
 	
 	map.renderLayer(ctx, map.overlay);

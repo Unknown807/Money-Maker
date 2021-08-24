@@ -100,6 +100,8 @@ function handleInteractionInput(player, EKeySprite, map) {
 	// Pick up item that is currently in range
 	if (input.isDown("e") && !menuShown && current_item != null) {
 		
+		sounds.playSound("item_pick_up")
+		
 		let rawdata = fs.readFileSync("./removed_items.json");
 		let data = JSON.parse(rawdata);
 		
@@ -127,6 +129,8 @@ function handleInteractionInput(player, EKeySprite, map) {
 	
 	// Talk to npc that is currently in range
 	if (input.isDown("e") && !menuShown && current_npc != null) {
+		
+		sounds.playSound("start_convo")
 		
 		menuShown = true;
 		
