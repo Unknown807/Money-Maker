@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="94">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="96">
  <tileset firstgid="1" source="interiors2.tsx"/>
  <tileset firstgid="1425" source="interiors3.tsx"/>
  <layer id="2" name="background" width="40" height="23">
@@ -98,7 +98,7 @@
   <object id="15" x="447.333" y="32" width="64" height="34"/>
   <object id="16" x="511.333" y="32.6667" width="255.333" height="45.3333"/>
   <object id="17" x="767.333" y="31.3333" width="64" height="35.3333"/>
-  <object id="18" x="832" y="32" width="254.667" height="42.6667"/>
+  <object id="18" x="832" y="32" width="254.667" height="46.1667"/>
   <object id="19" x="1087.33" y="30.6667" width="62.6667" height="36.6667"/>
   <object id="21" x="1152" y="63.3333" width="32" height="36"/>
   <object id="22" x="1185.33" y="64.6667" width="61.3333" height="63.3333"/>
@@ -152,7 +152,7 @@
   <object id="91" x="735.333" y="384" width="34.6667" height="32"/>
  </objectgroup>
  <objectgroup id="7" name="doors">
-  <object id="92" x="122.5" y="67.5" width="78" height="12">
+  <object id="92" x="122.5" y="67.5" width="78" height="7.33333">
    <properties>
     <property name="col" type="int" value="9"/>
     <property name="map_name" value="black_team_lounge"/>
@@ -163,6 +163,20 @@
    <properties>
     <property name="col" type="int" value="9"/>
     <property name="map_name" value="blue_team_lounge"/>
+    <property name="row" type="int" value="14"/>
+   </properties>
+  </object>
+  <object id="94" x="762" y="65" width="78.3333" height="7.66667">
+   <properties>
+    <property name="col" type="int" value="9"/>
+    <property name="map_name" value="red_team_lounge"/>
+    <property name="row" type="int" value="14"/>
+   </properties>
+  </object>
+  <object id="95" x="1081" y="64.5" width="77.5" height="9.5">
+   <properties>
+    <property name="col" type="int" value="9"/>
+    <property name="map_name" value="yellow_team_lounge"/>
     <property name="row" type="int" value="14"/>
    </properties>
   </object>

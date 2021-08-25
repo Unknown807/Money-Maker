@@ -1,46 +1,46 @@
 import json
 
-map_name = "blue_team_lounge"
+map_name = "yellow_team_lounge"
 
 items = [
-    { # Elephant Looking down
-	"npc_name": "Blue Team Member",
+    { # Frog looking down
+	"npc_name": "Yellow Team Member",
 	"tileset": "npcs1.png",
-	"tile_row": 4,
-	"tile_col": 8,
+	"tile_row": 14,
+	"tile_col": 0,
+        "tile_width": 32,
+        "tile_height": 32,
+        "anim_frames": [0,8],
+        "anim_dir": "horizontal",
+        "anim_speed": 2
+    },
+    { # Rabbit looking right
+	"npc_name": "Yellow Team Member",
+	"tileset": "npcs1.png",
+	"tile_row": 10,
+	"tile_col": 4,
         "tile_width": 32,
         "tile_height": 32,
         "anim_frames": [0,],
         "anim_dir": "horizontal",
         "anim_speed": 0
     },
-    { # Ram looking down
-	"npc_name": "Blue Team Member",
+    { # Ram looking down then right
+	"npc_name": "Yellow Team Receptionist",
 	"tileset": "npcs1.png",
-	"tile_row": 7,
-	"tile_col": 8,
-        "tile_width": 32,
-        "tile_height": 32,
-        "anim_frames": [0,],
-        "anim_dir": "horizontal",
-        "anim_speed": 0
-    },
-    { # Deer looking down then right (down at computer)
-	"npc_name": "Blue Team Receptionist",
-	"tileset": "npcs1.png",
-	"tile_row": 3,
-	"tile_col": 8,
+	"tile_row": 16,
+	"tile_col": 0,
         "tile_width": 32,
         "tile_height": 32,
         "anim_frames": [0,4],
         "anim_dir": "horizontal",
-        "anim_speed": 1
+        "anim_speed": 2
     },
-    { # Rabbit facing left
-	"npc_name": "Blue Team Member",
+    { # Elephant looking left
+	"npc_name": "Yellow Team Member",
 	"tileset": "npcs1.png",
-	"tile_row": 1,
-	"tile_col": 15,
+	"tile_row": 13,
+	"tile_col": 6,
         "tile_width": 32,
         "tile_height": 32,
         "anim_frames": [0,],

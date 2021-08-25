@@ -1,7 +1,7 @@
 import json
 import pytmx
 
-filename = "main_island_lounge"
+filename = "yellow_team_lounge"
 bg_sound = "elevator_bg" # + extensions
 footstep_sound = "footstep_wood"
 

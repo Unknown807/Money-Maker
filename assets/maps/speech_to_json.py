@@ -1,6 +1,6 @@
 import json
 
-map_name = "blue_team_lounge"
+map_name = "yellow_team_lounge"
 
 ##items = [
 ##    {
@@ -53,70 +53,58 @@ map_name = "blue_team_lounge"
 ##]
 
 items = [
-    { # Elephant
+    { # Frog
         "0": {
-            "item": 0,
-            "lines": [
-                    ["npc", "Beautifully crafted vases for sale!"],
-                    ["player", "They are quite nice looking, how much for one?"],
-                    ["npc", "Oh a customer! Well to be honest you're the first person to want any of my vases. So I'll give you this one I just made for FREE!"],
-                    ["player", "Really?! Wow thank you very much"],
-                    ["npc", "No problem, take care"]
-                ],
-            "reward": ["beautifully crafted blue vase", 1]
-        },
-        "1": {
             "item": -1,
             "lines": [
-                    ["npc", "Anytime now someone else will come here and BUY one of my vases"],
-                    ["player", "I'm er sure they will"],
+                    ["npc", "My dad was a Chameleon and my mom was a Frog, which explains why I'm this half-baked mess which randomly switches colours"],
+                    ["player", "That's quite an interesting predicament"],
+                ],
+        }
+    },
+    { # Rabbit
+         "0": {
+            "item": -1,
+            "lines": [
+                    ["npc", "I love the sun it's so orange just like me!"]
                 ]
-            }
+        },
     },
     { # Ram
          "0": {
-            "item": -1,
-            "lines": [
-                    ["npc", "Being a wooly ram in sweltering conditions is no fun at all. Thank goodness the Blue team has tons of air-conditioning"],
-                ]
-        },
-    },
-    { # Receptionist
-         "0": {
-            "item": "blue team badge",
+            "item": "yellow team badge",
             "qty": 1,
             "keep": 1,
             "found": [
-                    ["npc", "Oh I'll be with you in one second I just need to...beat...this...level"],
-                    ["player", "..."],
-                    ["npc", "Damnit I lost!"],
-                    ["npc", "Oh ah anyways, hello welcome to the Blue team, just relax, do whatever you want no obligations, nothing, you get it?"],
-                    ["player", "Alrighty then"],
-                    ["npc", "(Man this is like the 100th time I've lost on this level)"]
+                    ["npc", "*click* *tap *click*, oh! You're the new Yellow team member so sorry I was just sending and replying to a ton of my emails"],
+                    ["player", "Er no problem, I just wanted to know more about the Yellow team"],
+                    ["npc", "Ah yeah, I feel the captain out front doesn't really do a good job explaining"],
+                    ["npc", "Well the Yellow team has always stood for (something something) and we seek to achieve (er something or other)..."],
+                    ["player", "Um...I'm not catching the key parts of your explanation there, why are you whispering?"],
+                    ["npc", "Well because, er...OH! Look an email I really have to answer this now, bye!"],
+                    ["player", "(Yeah he has no idea what he's talking about...)"]
                 ],
             "missing": [
-                    ["npc", "Sorry playing a gam...I mean I'm busy right now, come back later"],
-                    ["player", "I just wanted to ask..."],
-                    ["npc", "Sorry later please!"],
-                    ["player", "(What is your job then anyways?!?)"]
+                    ["npc", "Sorry I don't have time to spend on non-yellow team members, bye!"],
+                    ["player", "hmph"]
                 ]
             },
          "1": {
              "item": -1,
              "lines": [
-                     ["npc", "*click* *click *click* not another loss!"],
-                     ["player", "(Nevermind, I don't think I should bother asking anything)"]
+                     ["player", "If your the Yellow team why are there so many green people around?"],
+                     ["npc", "Good question, that's because...er...actually I don't know, something about symbolism and plants and the sun, yeah I forget"],
+                     ["player", "Er...right thanks"],
                  ]
              },        
     },
-    { # Rabbit
+    { # Elephant
         "0": {
             "item": -1,
             "lines": [
-                    ["npc", "Yep Blue team was the right choice, only they have the most relaxing places to lounge..."],
-                    ["player", "Oh you a new member?"],
-                    ["npc", "zzzzzzZZZ"],
-                    ["player", "Er...nevermind"]
+                    ["npc", "People need to put more effort into maintaining their ecosystem services and preventing the deforestation and destruction of important carbon sinks such as the tropical rainforests of the world. This would ensure a sustainable and long lasting future for us here on Earth"],
+                    ["npc", "Really grinds my gears!"],
+                    ["player", "Yeah er, whatever you said"],
                 ]
             }
     },

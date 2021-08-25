@@ -14,19 +14,6 @@ class Camera {
 		ctx.setTransform(1,0,0,1,0,0);
 		ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 		
-		// Adjust camera for new rooms
-		
-		/*
-		if (this.adjustX == -1) {
-			ctx.translate(this.adjustX, 0);
-			this.adjustX = 0;
-		}*/
-		//let adjustedX = 
-		//ctx.translate(adjustedX, adjustedY)
-		//ctx.translate(128, 0);
-		
-		//ctx.translate(0, 0);
-		
 		let mapImageWidth = map.width*32;
 		let mapImageHeight = map.height*32;
 	
