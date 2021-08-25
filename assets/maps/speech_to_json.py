@@ -1,6 +1,6 @@
 import json
 
-map_name = "main_island_lounge"
+map_name = "blue_team_lounge"
 
 ##items = [
 ##    {
@@ -53,177 +53,74 @@ map_name = "main_island_lounge"
 ##]
 
 items = [
-    {# Team yellow captain
+    { # Elephant
         "0": {
             "item": 0,
             "lines": [
-                    ["npc", "HEY THERE WANNA JOIN THE YELLOW TEAM!!!?!?"],
-                    ["player", "ah I just wanted to know what you guys lik..."],
-                    ["npc", "WE LOVE EVERYTHING NATURE, THE SUN, THE GRASS, THE BUGS!!!!"],
-                    ["npc", "IF YOU'RE INTERESTED IN JOINING THE YELLOW TEAM JUST SPEAK TO ME AGAIN AND MAKE SURE YOU HAVE AN UNMARKED BADGE!!!!"],
-                    ["player", "Aha...yep will do..."]
-                ]
-            },
+                    ["npc", "Beautifully crafted vases for sale!"],
+                    ["player", "They are quite nice looking, how much for one?"],
+                    ["npc", "Oh a customer! Well to be honest you're the first person to want any of my vases. So I'll give you this one I just made for FREE!"],
+                    ["player", "Really?! Wow thank you very much"],
+                    ["npc", "No problem, take care"]
+                ],
+            "reward": ["beautifully crafted blue vase", 1]
+        },
         "1": {
-            "item": "unmarked badge",
-            "qty": 1,
-            "keep": 0,
-            "found": [
-                    ["npc", "ALRIGHT ALRIGHT ALRIGHT!!! YOU'RE GONNA LOOOOVEE THE YELLOW TEAM!!!!"],
-                    ["player", "I bet I am!"],
-                    ["npc", "GIVE ME A SECOND TO MAKE YOU YOU'RE NEW BADGE!!! JUST TALK TO ME AGAIN LATER!!!"],
-                    ["player", "ok seeya"]
-                ],
-            "missing": [
-                    ["npc", "IF YOU WANNA JOIN THE TEAM GET AN UNMARKED BADGE, OR SCRAM IF YOU'RE ALREADY IN A TEAM!!!"],
-                    ["player", "er...alright"],
-                ]
-            },
-        "2": {
-            "item": 0,
-            "lines": [
-                    ["npc", "HERE'S YOU'RE BADGE TEAM MEMBER!!!"],
-                    ["player", "thanks!"],
-                ],
-            "reward": ["yellow team badge", 1]
-            },
-        "3": {
             "item": -1,
             "lines": [
-                    ["npc", "WANNA HEAR A JOKE!?!??! KNOCK KNOCK KNOCK KNOCK KNOCK KNOCK KNOCK..."],
-                    ["player", "er...who's there?"],
-                    ["npc", "KNOCK KNOCK KNOCK KNOCK KNOCK KNOCK KNOCK..."],
-                    ["player", "umm you finished yet?"],
-                    ["npc", "I FORGOT WHAT I WAS GONNNNNNAAA SAAAAYY!!!"],
-                    ["player", "That's ok I'll seeya around I guess?"],
-                    ["npc", "YEAH YEAH NO SWEAT BYE!!!"],
+                    ["npc", "Anytime now someone else will come here and BUY one of my vases"],
+                    ["player", "I'm er sure they will"],
                 ]
             }
     },
-    {# Team red captain
+    { # Ram
+         "0": {
+            "item": -1,
+            "lines": [
+                    ["npc", "Being a wooly ram in sweltering conditions is no fun at all. Thank goodness the Blue team has tons of air-conditioning"],
+                ]
+        },
+    },
+    { # Receptionist
+         "0": {
+            "item": "blue team badge",
+            "qty": 1,
+            "keep": 1,
+            "found": [
+                    ["npc", "Oh I'll be with you in one second I just need to...beat...this...level"],
+                    ["player", "..."],
+                    ["npc", "Damnit I lost!"],
+                    ["npc", "Oh ah anyways, hello welcome to the Blue team, just relax, do whatever you want no obligations, nothing, you get it?"],
+                    ["player", "Alrighty then"],
+                    ["npc", "(Man this is like the 100th time I've lost on this level)"]
+                ],
+            "missing": [
+                    ["npc", "Sorry playing a gam...I mean I'm busy right now, come back later"],
+                    ["player", "I just wanted to ask..."],
+                    ["npc", "Sorry later please!"],
+                    ["player", "(What is your job then anyways?!?)"]
+                ]
+            },
+         "1": {
+             "item": -1,
+             "lines": [
+                     ["npc", "*click* *click *click* not another loss!"],
+                     ["player", "(Nevermind, I don't think I should bother asking anything)"]
+                 ]
+             },        
+    },
+    { # Rabbit
         "0": {
-            "item": 0,
-            "lines": [
-                    ["npc", "Only join the red team if DANGER is you're middl-FIRST name!"],
-                    ["player", "(a bit cringe...)"],
-                    ["npc", "Did you just say something there?"],
-                    ["player", "Ah no nothing!"],
-                    ["npc", "Ah ok, well there should be an unmarked badge lying around somewhere here, speak to me when you have it next if you want to join the Red Team"],
-                    ["player", "Will do"],
-                ]
-            },
-        "1": {
-            "item": "unmarked badge",
-            "qty": 1,
-            "keep": 0,
-            "found": [
-                    ["npc", "I knew you wanted to join this team from the moment I saw you, only the strongest have the will to join!"],
-                    ["player", "All that from a look?"],
-                    ["npc", "Yea-well no, er...its more complex than that, you need years of practice as the Team's Captain to determine that!"],
-                    ["npc", "Talk to me again and i'll have your badge ready"],
-                    ["player", "Ok then seeya"],
-                ],
-            "missing": [
-                    ["npc", "No joining without the badge buddy"],
-                    ["player", "ok"],
-                ]
-            },
-        "2": {
-            "item": 0,
-            "lines": [
-                    ["npc", "Congratulations on joining the strongest team here!"],
-                    ["player", "Ok, thanks"],
-                ],
-            "reward": ["red team badge", 1]
-            },
-        "3": {
             "item": -1,
             "lines": [
-                    ["npc", "(Mm I wish I became a landscaper...)"],
-                    ["player", "Did you say something?"],
-                    ["npc", "OH! I mean I love being strong and in the Red team alright!"],
-                    ["player", "Right...bye then"],
+                    ["npc", "Yep Blue team was the right choice, only they have the most relaxing places to lounge..."],
+                    ["player", "Oh you a new member?"],
+                    ["npc", "zzzzzzZZZ"],
+                    ["player", "Er...nevermind"]
                 ]
             }
     },
-    {# Team blue captain
-        "0": {
-            "item": 0,
-            "lines": [
-                    ["npc", "You like relaxing?"],
-                    ["player", "Yeah who doesn't?"],
-                    ["npc", "Well then bring on over an unmarked badge and you can join the Blue team"],
-                    ["player", "Ok, got it"],
-                ]
-            },
-        "1": {
-            "item": "unmarked badge",
-            "qty": 1,
-            "keep": 0,
-            "found": [
-                    ["npc", "Nice, just give me a moment to make you a nice shiny Blue team badge"],
-                    ["player", "Ok, talk to you later"],
-                ],
-            "missing": [
-                    ["npc", "You need to give me an unmarked badge so I can er...mark it duh! Only then you can join the Blue team"],
-                    ["player", "Ok"],
-                ]
-            },
-        "2": {
-            "item": 0,
-            "lines": [
-                    ["npc", "Nice, feel feel to walk around the main island and also the Blue team's relaxation room is through those doors above"],
-                    ["player", "Ok, thanks"]
-                ],
-            "reward": ["blue team badge", 1]
-            },
-        "3": {
-            "item": -1,
-            "lines": [
-                    ["npc", "Its pretty hot in this room can anyone turn it down to something cooooler?"],
-                ]
-            }
-    },
-    {# Team black captain
-        "0": {
-            "item": 0,
-            "lines": [
-                    ["npc", "Books, books, books! Who doesn't love books! Adventures, romance, danger, endless enjoyment!"],
-                    ["npc", "Oh I lost myself a bit there, you wanna join our team? If so just bring me an unmarked badge"],
-                    ["player", "Ok"],
-                ]
-            },
-        "1": {
-            "item": "unmarked badge",
-            "qty": 1,
-            "keep": 0,
-            "found": [
-                    ["npc", "Ah thanks for the badge, talk to me later to get your team one. In the mean time read a book?"],
-                    ["player", "Alright"]
-                ],
-            "missing": [
-                    ["npc", "I need an unmarked badge from you if you wish to join the Black team, if you're already part of a team then read a book about bad choices haha!"],
-                    ["player", "Right..."],
-                ]
-            },
-        "2": {
-            "item": 0,
-            "lines": [
-                    ["npc", "You are now part of the Black team, feel free to read some more books in the back room there"],
-                    ["player", "Sure"]
-                ],
-            "reward": ["black team badge", 1]
-            },
-        "3": {
-            "item": -1,
-            "lines": [
-                    ["player", "You ever go outside instead of read books?"],
-                    ["npc", "Why would I, the books talk about everything outside anyways haha!"],
-                    ["player", "Well I'm off to explore"],
-                    ["npc", "Yeah yeah yeah whatever, I'm reading a book here!"]
-                ]
-            }
-    },
+    
 ]
 
 

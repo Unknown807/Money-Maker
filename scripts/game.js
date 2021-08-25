@@ -13,7 +13,7 @@ document.body.appendChild(canvas);
 
 var map = new GameMap();
 var camera = new Camera();
-var player = new PlayerSprite("assets/images/tilesets/npcs1.png", [50, canvas.height/2], [0, 0], [32, 32], 6, [[0,1], [2,3], [4,5], [6,7]])
+var player = new PlayerSprite("assets/images/tilesets/npcs1.png", [canvas.width/2+100, canvas.height/2+100], [0, 0], [32, 32], 6, [[0,1], [2,3], [4,5], [6,7]])
 var EKeySprite = new Sprite("assets/images/ekeys.png", [0,0], [0, 0], [32, 32], 2, [[0,1],]);
 EKeySprite.hide = true;
 EKeySprite.moving = true;
@@ -82,10 +82,14 @@ function init() {
 	try {
 		fs.writeFileSync("removed_items.json", JSON.stringify({
 			"main_island_lounge": [],
+			"black_team_lounge": [],
+			"blue_team_lounge": [],
 		}));
 		
 		fs.writeFileSync("speech_counters.json", JSON.stringify({
 			"main_island_lounge": {},
+			"black_team_lounge": {},
+			"blue_team_lounge": {},
 		}));
 	} catch (err) {
 		console.error(err);
