@@ -168,22 +168,22 @@
   </object>
   <object id="36" x="542.667" y="254.667" width="34" height="32.6667">
    <properties>
-    <property name="animated_tile_id" value="9"/>
+    <property name="animated_tile_id" value="5"/>
    </properties>
   </object>
   <object id="37" x="414.667" y="318" width="36" height="36">
    <properties>
-    <property name="animated_tile_id" value="10"/>
+    <property name="animated_tile_id" value="4"/>
    </properties>
   </object>
   <object id="38" x="478.667" y="318" width="34.6667" height="35.3333">
    <properties>
-    <property name="animated_tile_id" value="11"/>
+    <property name="animated_tile_id" value="6"/>
    </properties>
   </object>
   <object id="39" x="544" y="316.667" width="34" height="36.6667">
    <properties>
-    <property name="animated_tile_id" value="12"/>
+    <property name="animated_tile_id" value="7"/>
    </properties>
   </object>
  </objectgroup>

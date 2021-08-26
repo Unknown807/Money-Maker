@@ -14,7 +14,7 @@ class GameMap {
 		
 		this.animated_tile_boxes = [];
 		this.animated_tiles = null;
-		this.animated_tile_sprites = new Map();
+		this.animated_tile_sprites = [];
 		
 		this.item_boxes = [];
 		this.items = null;
@@ -46,7 +46,7 @@ class GameMap {
 		this.item_boxes	= data["items"]["data"];
 		this.npc_boxes = data["npcs"]["data"];
 		
-		this.animated_tile_sprites = new Map();
+		this.animated_tile_sprites = [];
 		this.item_sprites = new Map();
 		this.npc_sprites = new Map();
 		
@@ -111,7 +111,7 @@ class GameMap {
 									tile["anim_dir"]);
 			
 			animated_sprite.moving = true;
-			this.animated_tile_sprites.set(object["animated_tile_id"], animated_sprite);
+			this.animated_tile_sprites.push(animated_sprite);
 		}
 		
 		this.animated_tile_boxes = null;

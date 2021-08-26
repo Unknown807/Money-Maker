@@ -86,6 +86,7 @@ function init() {
 			"blue_team_lounge": [],
 			"red_team_lounge": [],
 			"yellow_team_lounge": [],
+			"main_island_town_1": [],
 		}));
 		
 		fs.writeFileSync("speech_counters.json", JSON.stringify({
@@ -94,6 +95,7 @@ function init() {
 			"blue_team_lounge": {},
 			"red_team_lounge": {},
 			"yellow_team_lounge": {},
+			"main_island_town_1": {},
 		}));
 	} catch (err) {
 		console.error(err);

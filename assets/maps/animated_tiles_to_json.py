@@ -104,46 +104,36 @@ items = [
         "anim_dir": "horizontal",
         "anim_speed": 3
     },
-    { # redish squirrel running down - 9
-        "tileset": "npcs1.png",
-        "tile_row": 8,
-        "tile_col": 0,
-        "tile_width": 32,
+    { # Animated waterfall first clear then foamy - 9
+        "tileset": "exteriors1.png",
+        "tile_row": 14,
+        "tile_col": 44,
+        "tile_width": 96,
         "tile_height": 32,
-        "anim_frames": [0,1],
-        "anim_dir": "horizontal",
+        "anim_frames": [0,-1],
+        "anim_dir": "vertical",
+        "anim_speed": 1
+    },
+    { # Animated waterfall first clear then foamy - 10
+        "tileset": "exteriors1.png",
+        "tile_row": 14,
+        "tile_col": 44,
+        "tile_width": 96,
+        "tile_height": 32,
+        "anim_frames": [0,-1],
+        "anim_dir": "vertical",
         "anim_speed": 3
     },
-    { # brownish fox running down - 10
-        "tileset": "npcs1.png",
-        "tile_row": 0,
-        "tile_col": 0,
+    { # Animated water shimmering- 11
+        "tileset": "exteriors1.png",
+        "tile_row": 14,
+        "tile_col": 41,
         "tile_width": 32,
         "tile_height": 32,
-        "anim_frames": [0,1],
+        "anim_frames": [0,1,2],
         "anim_dir": "horizontal",
         "anim_speed": 3
-    },
-    { # red dog running down - 11
-        "tileset": "npcs1.png",
-        "tile_row": 6,
-        "tile_col": 0,
-        "tile_width": 32,
-        "tile_height": 32,
-        "anim_frames": [0,1],
-        "anim_dir": "horizontal",
-        "anim_speed": 3
-    },
-    { # red ram running down - 12
-        "tileset": "npcs1.png",
-        "tile_row": 7,
-        "tile_col": 0,
-        "tile_width": 32,
-        "tile_height": 32,
-        "anim_frames": [0,1],
-        "anim_dir": "horizontal",
-        "anim_speed": 3
-    },
+    }
 ]
 
 items_formatted = {}

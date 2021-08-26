@@ -1,6 +1,6 @@
 import json
 
-map_name = "yellow_team_lounge"
+map_name = "main_island_town_1"
 
 ##items = [
 ##    {
@@ -53,60 +53,87 @@ map_name = "yellow_team_lounge"
 ##]
 
 items = [
-    { # Frog
+    { # Green Ram - 0
         "0": {
             "item": -1,
             "lines": [
-                    ["npc", "My dad was a Chameleon and my mom was a Frog, which explains why I'm this half-baked mess which randomly switches colours"],
-                    ["player", "That's quite an interesting predicament"],
+                    ["npc", "Don't you just love the shimmer of the shores, the whistling of the wind and the warmth of the sun..."],
+                    ["player", "Its quite peaceful out here yeah"],
                 ],
         }
     },
-    { # Rabbit
-         "0": {
-            "item": -1,
-            "lines": [
-                    ["npc", "I love the sun it's so orange just like me!"]
-                ]
-        },
-    },
-    { # Ram
-         "0": {
-            "item": "yellow team badge",
-            "qty": 1,
-            "keep": 1,
-            "found": [
-                    ["npc", "*click* *tap *click*, oh! You're the new Yellow team member so sorry I was just sending and replying to a ton of my emails"],
-                    ["player", "Er no problem, I just wanted to know more about the Yellow team"],
-                    ["npc", "Ah yeah, I feel the captain out front doesn't really do a good job explaining"],
-                    ["npc", "Well the Yellow team has always stood for (something something) and we seek to achieve (er something or other)..."],
-                    ["player", "Um...I'm not catching the key parts of your explanation there, why are you whispering?"],
-                    ["npc", "Well because, er...OH! Look an email I really have to answer this now, bye!"],
-                    ["player", "(Yeah he has no idea what he's talking about...)"]
-                ],
-            "missing": [
-                    ["npc", "Sorry I don't have time to spend on non-yellow team members, bye!"],
-                    ["player", "hmph"]
-                ]
-            },
-         "1": {
-             "item": -1,
-             "lines": [
-                     ["player", "If your the Yellow team why are there so many green people around?"],
-                     ["npc", "Good question, that's because...er...actually I don't know, something about symbolism and plants and the sun, yeah I forget"],
-                     ["player", "Er...right thanks"],
-                 ]
-             },        
-    },
-    { # Elephant
+    { # Blue Cat - 1
         "0": {
             "item": -1,
             "lines": [
-                    ["npc", "People need to put more effort into maintaining their ecosystem services and preventing the deforestation and destruction of important carbon sinks such as the tropical rainforests of the world. This would ensure a sustainable and long lasting future for us here on Earth"],
-                    ["npc", "Really grinds my gears!"],
-                    ["player", "Yeah er, whatever you said"],
+                    ["player", "What's this temple here all about?"],
+                    ["npc", "I'm just a simple farmer here, but from what I know it was constructed many hundreds of years ago for the deities of the natural elements"],
+                    ["player", "Natural elements?"],
+                    ["npc", "The natural elements in this world are Earth, Water, Fire, Air and the thing that binds them all Luck!"],
+                    ["player", "Oh interesting I didn't know luck was one"],
+                    ["npc", "Well the more you know..."]
                 ]
-            }
+        }
+    },
+    { # Dark Rabbit - 2
+        "0": {
+            "item": -1,
+            "lines": [
+                    ["npc", "As much as I love books, I just couldn't stay cooped up in that lounge all day, just look at how nice mother nature is. The Black team really should stop sneering anytime a suggestion of going outside is mentioned :( That captain just doesn't listen!"],
+                ],
+        }
+    },
+    { # Purple Elephant - 3
+        "0": {
+            "item": -1,
+            "lines": [
+                    ["npc", "The Blue team's air conditioning is just too cold, I've gone purple! Its a lot warmer outside!"],
+                    ["npc", "You know what I'm not going in that lounge ever again!"],
+                    ["player", "Thats quite the commitment"],
+                    ["npc", "I know and I plan on sticking to i...wait where's my snack? Oh no I left it in the Blue team lounge O.O"],
+                    ["player", "Well goodluck with your situation"]
+                ],
+        }
+    },
+    { # Golden Fox - 4
+        "0": {
+            "item": -1,
+            "lines": [
+                    ["npc", "Look how the reeds sway in the water, listen to the chirping of birds and waving of flowers in the wind..."],
+                    ["npc", "Now this is something worth painting!"]
+                ],
+        }
+    },
+    { # Green Frog - 5
+        "0": {
+            "item": -1,
+            "lines": [
+                    ["npc", "You should try fishing it teaches you great patience as you wait for a catch"],
+                    ["player", "Maybe, though I probably don't have too much time for that"],
+                    ["npc", "Well when you do go really savour the moment!"],
+                    ["player", "Sure..."]
+                ],
+        }
+    },
+    { # Purple Squirrel - 6
+        "0": {
+            "item": 0,
+            "lines": [
+                    ["npc", "You ever skipped stones before?"],
+                    ["player", "Not in a long time"],
+                    ["npc", "You should give it a try, good exercise and it improves your hand-eye coordination"],
+                    ["npc", "Here take some of my stones no charge!"],
+                    ["player", "(Why would I pay for stones anyways?)"],
+                    ["player", "Um thanks"],
+                ],
+            "reward": ["stone", 3]
+        },
+        "1": {
+            "item": -1,
+            "lines": [
+                    ["npc", "Whoops! Almost hit someone there"],
+                ]
+        }
     },
     
 ]

@@ -23,6 +23,8 @@ class Camera {
 		if ( (mapImageWidth <= canvasWidth ) && (mapImageHeight <= canvasHeight) ) {
 			
 			ctx.translate(this.camX, this.camY);
+			this.lastCamX = this.camX;
+			this.lastCamY = this.camY;
 			
 		} else {
 		
