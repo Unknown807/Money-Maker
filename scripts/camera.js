@@ -23,13 +23,11 @@ class Camera {
 		if ( (mapImageWidth <= canvasWidth ) && (mapImageHeight <= canvasHeight) ) {
 			
 			ctx.translate(this.camX, this.camY);
-			this.lastCamX = this.camX;
-			this.lastCamY = this.camY;
 			
 		} else {
 		
-			let camBorderX = (mapImageWidth+(canvasWidth/2)-player.pos[0] < canvasWidth || player.pos[0] < canvasWidth/2);
-			let camBorderY = (mapImageHeight+(canvasHeight/2)-player.pos[1] < canvasHeight || player.pos[1] < canvasHeight/2);
+			let camBorderX = (mapImageWidth+this.camX < canvasWidth || player.pos[0] < canvasWidth/2);
+			let camBorderY = (mapImageHeight+this.camY < canvasHeight || player.pos[1] < canvasHeight/2);
 			
 			if (camBorderX && camBorderY) {
 				ctx.translate(this.lastCamX, this.lastCamY);

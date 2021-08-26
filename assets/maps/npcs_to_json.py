@@ -1,23 +1,12 @@
 import json
 
-map_name = "main_island_town_1"
+map_name = "main_island_temple_1"
 
 items = [
-    { # Green Ram looking right - 0
-	"npc_name": "Tourist",
+    { # Gray Ram looking right - 0
+	"npc_name": "Temple Monk",
 	"tileset": "npcs1.png",
 	"tile_row": 16,
-	"tile_col": 4,
-        "tile_width": 32,
-        "tile_height": 32,
-        "anim_frames": [0,],
-        "anim_dir": "horizontal",
-        "anim_speed": 0
-    },
-    { # Blue cat looking right - 1
-	"npc_name": "Farmer",
-	"tileset": "npcs1.png",
-	"tile_row": 2,
 	"tile_col": 12,
         "tile_width": 32,
         "tile_height": 32,
@@ -25,32 +14,10 @@ items = [
         "anim_dir": "horizontal",
         "anim_speed": 0
     },
-    { # Dark rabbit looking down - 2
-	"npc_name": "Black Team Member",
+    { # Yellow Elephant looking down - 0
+	"npc_name": "Sculpter",
 	"tileset": "npcs1.png",
-	"tile_row": 10,
-	"tile_col": 8,
-        "tile_width": 32,
-        "tile_height": 32,
-        "anim_frames": [0,],
-        "anim_dir": "horizontal",
-        "anim_speed": 0
-    },
-    { # Purple elephant looking down - 3
-	"npc_name": "Blue Team Member",
-	"tileset": "npcs1.png",
-	"tile_row": 4,
-	"tile_col": 8,
-        "tile_width": 32,
-        "tile_height": 32,
-        "anim_frames": [0,],
-        "anim_dir": "horizontal",
-        "anim_speed": 0
-    },
-    { # Golden fox looking down - 4
-	"npc_name": "Artist",
-	"tileset": "npcs1.png",
-	"tile_row": 9,
+	"tile_row": 13,
 	"tile_col": 0,
         "tile_width": 32,
         "tile_height": 32,
@@ -58,28 +25,17 @@ items = [
         "anim_dir": "horizontal",
         "anim_speed": 0
     },
-    { # Green frog looking up - 5
-	"npc_name": "Fisherman",
+    { # Dark Blue Rabbit looking down and up - 0
+	"npc_name": "Cook",
 	"tileset": "npcs1.png",
-	"tile_row": 14,
-	"tile_col": 2,
+	"tile_row": 1,
+	"tile_col": 8,
         "tile_width": 32,
         "tile_height": 32,
-        "anim_frames": [0,],
-        "anim_dir": "horizontal",
-        "anim_speed": 0
-    },
-    { # Purple Squirrel looking up then left - 6
-	"npc_name": "Tourist",
-	"tileset": "npcs1.png",
-	"tile_row": 8,
-	"tile_col": 10,
-        "tile_width": 32,
-        "tile_height": 32,
-        "anim_frames": [0, 4],
+        "anim_frames": [0,2],
         "anim_dir": "horizontal",
         "anim_speed": 2
-    },
+    }
 ]
 
 items_formatted = {}

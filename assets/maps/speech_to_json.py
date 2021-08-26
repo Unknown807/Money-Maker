@@ -1,6 +1,6 @@
 import json
 
-map_name = "main_island_town_1"
+map_name = "main_island_temple_1"
 
 ##items = [
 ##    {
@@ -53,89 +53,74 @@ map_name = "main_island_town_1"
 ##]
 
 items = [
-    { # Green Ram - 0
+    { # Gray Ram - 0
         "0": {
-            "item": -1,
-            "lines": [
-                    ["npc", "Don't you just love the shimmer of the shores, the whistling of the wind and the warmth of the sun..."],
-                    ["player", "Its quite peaceful out here yeah"],
+            "item": "little turtle",
+            "qty": 1,
+            "keep": 0,
+            "found": [
+                    ["npc", "Oh you found the temple turtle thank goodness! I was looking all over"],
+                    ["player", "He was just right outside?"],
+                    ["npc", "Well I'm quite old and cannot see that far, so you're endeavor means a lot!"],
+                    ["player", "Thank you very much old man"],
+                    ["npc", "Tell you what, next time you speak to me I'll give you a gift, first I gotta find it in my things"],
+                    ["player", "Sounds good"]
                 ],
-        }
-    },
-    { # Blue Cat - 1
-        "0": {
-            "item": -1,
-            "lines": [
-                    ["player", "What's this temple here all about?"],
-                    ["npc", "I'm just a simple farmer here, but from what I know it was constructed many hundreds of years ago for the deities of the natural elements"],
-                    ["player", "Natural elements?"],
-                    ["npc", "The natural elements in this world are Earth, Water, Fire, Air and the thing that binds them all Luck!"],
-                    ["player", "Oh interesting I didn't know luck was one"],
-                    ["npc", "Well the more you know..."]
+            "missing": [
+                    ["npc", "Have you seen the temple turtle, its very important to me as the head monk here! Its a most holy animal"],
+                    ["player", "I'll bring it to you if I find it"],
+                    ["npc", "Thank you kindly"]
                 ]
-        }
-    },
-    { # Dark Rabbit - 2
-        "0": {
+        },
+        "1": {
+            "item": 0,
+            "lines": [
+                    ["npc", "Heres your gift as promised, my old lucky coin!"],
+                    ["player", "Wow for being quite old looking it seems as shiny as ever"],
+                    ["npc", "Maybe thats the luck showing its worth haha"],
+                    ["player", "Well thank you very much"],
+                    ["npc", "Take care"]
+                ]
+            },
+        "2": {
             "item": -1,
             "lines": [
-                    ["npc", "As much as I love books, I just couldn't stay cooped up in that lounge all day, just look at how nice mother nature is. The Black team really should stop sneering anytime a suggestion of going outside is mentioned :( That captain just doesn't listen!"],
-                ],
-        }
+                    ["npc", "Take some time to pray or leave an offering of food and your soul will feel ten times lighter"],
+                    ["player", "Thanks I guess"]
+                ]
+            }
     },
-    { # Purple Elephant - 3
-        "0": {
-            "item": -1,
-            "lines": [
-                    ["npc", "The Blue team's air conditioning is just too cold, I've gone purple! Its a lot warmer outside!"],
-                    ["npc", "You know what I'm not going in that lounge ever again!"],
-                    ["player", "Thats quite the commitment"],
-                    ["npc", "I know and I plan on sticking to i...wait where's my snack? Oh no I left it in the Blue team lounge O.O"],
-                    ["player", "Well goodluck with your situation"]
-                ],
-        }
-    },
-    { # Golden Fox - 4
-        "0": {
-            "item": -1,
-            "lines": [
-                    ["npc", "Look how the reeds sway in the water, listen to the chirping of birds and waving of flowers in the wind..."],
-                    ["npc", "Now this is something worth painting!"]
-                ],
-        }
-    },
-    { # Green Frog - 5
-        "0": {
-            "item": -1,
-            "lines": [
-                    ["npc", "You should try fishing it teaches you great patience as you wait for a catch"],
-                    ["player", "Maybe, though I probably don't have too much time for that"],
-                    ["npc", "Well when you do go really savour the moment!"],
-                    ["player", "Sure..."]
-                ],
-        }
-    },
-    { # Purple Squirrel - 6
+    { # Yellow Elephant
         "0": {
             "item": 0,
             "lines": [
-                    ["npc", "You ever skipped stones before?"],
-                    ["player", "Not in a long time"],
-                    ["npc", "You should give it a try, good exercise and it improves your hand-eye coordination"],
-                    ["npc", "Here take some of my stones no charge!"],
-                    ["player", "(Why would I pay for stones anyways?)"],
-                    ["player", "Um thanks"],
+                    ["npc", "For fuc-fudges sake my hammer broke again, argh I'm gonna have to buy a new one >:("],
+                    ["npc", "Hey you take this damn thing I don't want it at all"],
+                    ["player", "Er...thanks?"]
                 ],
-            "reward": ["stone", 3]
-        },
+            "reward": ["broken hammer", 1]
+            },
         "1": {
             "item": -1,
             "lines": [
-                    ["npc", "Whoops! Almost hit someone there"],
+                    ["player", "So what are you doing there anyways?"],
+                    ["npc", "I'm trying to sculpt my masterpiece, but all I can do are these trophy looking sculptures"],
+                    ["npc", "I gotta improve my craft a little more"],
+                    ["player", "Goodluck with that then"]
                 ]
-        }
+            }
     },
-    
+    { # Dark Blue Rabbit
+        "0": {
+            "item": -1,
+            "lines": [
+                    ["npc", "ooh! ahh! HOT! No don't spill!"],
+                    ["player", "Sorry am I interrupting your work?"],
+                    ["npc", "No not at all! Its just - ooh! - trying to cook with this broken furnace is sorta - ahh! - dangerous - eep!"],
+                    ["player", "Ah ok, er... take care"]
+                ]
+            }
+    }
 ]
 
 

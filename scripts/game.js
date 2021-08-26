@@ -24,6 +24,7 @@ sounds.load([
 	{id: "jazz_bg", src: "assets/sounds/jazz_bg.wav"},
 	{id: "flute_bg", src: "assets/sounds/flute_bg.wav"},
 	{id: "elevator_bg", src: "assets/sounds/elevator_bg.wav"},
+	{id: "temple_bg", src: "assets/sounds/temple_bg.wav"},
 	{id: "menu_click", src: "assets/sounds/menu_click.wav"},
 	{id: "item_pick_up", src: "assets/sounds/item_pick_up.wav"},
 	{id: "special_item_pick_up", src: "assets/sounds/special_item_pick_up.wav"},
@@ -87,6 +88,7 @@ function init() {
 			"red_team_lounge": [],
 			"yellow_team_lounge": [],
 			"main_island_town_1": [],
+			"main_island_temple_1": [],
 		}));
 		
 		fs.writeFileSync("speech_counters.json", JSON.stringify({
@@ -96,6 +98,7 @@ function init() {
 			"red_team_lounge": {},
 			"yellow_team_lounge": {},
 			"main_island_town_1": {},
+			"main_island_temple_1": {},
 		}));
 	} catch (err) {
 		console.error(err);

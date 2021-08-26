@@ -1,1 +1,1 @@
-{"0": {"item_name": "unmarked badge", "tileset": "items.png", "tile_row": 0, "tile_col": 13}}
+{"0": {"item_name": "unmarked badge", "tileset": "items.png", "tile_row": 0, "tile_col": 13}, "1": {"item_name": "little turtle", "tileset": "items.png", "tile_row": 8, "tile_col": 10}, "2": {"item_name": "little key", "tileset": "items.png", "tile_row": 0, "tile_col": 2}}

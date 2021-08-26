@@ -1,9 +1,9 @@
 import json
 import pytmx
 
-filename = "main_island_town_1"
-bg_sound = "flute_bg" # + extensions
-footstep_sound = "footstep_grass"
+filename = "main_island_temple_1"
+bg_sound = "temple_bg" # + extensions
+footstep_sound = "footstep_wood"
 
 data = pytmx.TiledMap(filename+".tmx")
 
