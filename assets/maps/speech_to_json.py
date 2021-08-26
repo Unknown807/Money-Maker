@@ -61,7 +61,7 @@ items = [
             "found": [
                     ["npc", "Oh you found the temple turtle thank goodness! I was looking all over"],
                     ["player", "He was just right outside?"],
-                    ["npc", "Well I'm quite old and cannot see that far, so you're endeavor means a lot!"],
+                    ["npc", "Well I'm quite old and cannot see that far, so your endeavor means a lot!"],
                     ["player", "Thank you very much old man"],
                     ["npc", "Tell you what, next time you speak to me I'll give you a gift, first I gotta find it in my things"],
                     ["player", "Sounds good"]
@@ -80,7 +80,8 @@ items = [
                     ["npc", "Maybe thats the luck showing its worth haha"],
                     ["player", "Well thank you very much"],
                     ["npc", "Take care"]
-                ]
+                ],
+            "reward": ["old lucky coin", 1]
             },
         "2": {
             "item": -1,
