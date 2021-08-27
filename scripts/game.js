@@ -104,8 +104,9 @@ function init() {
 		console.error(err);
 	}
 	
-	map.updateData(player, "main_island_lounge");
+	map.updateData(player, "main_island_temple_1");
 	map.createAnimatedTiles();
+	map.createGameItemSprites();
 	map.createItemSprites();
 	map.createNPCSprites();
 	lastTime = Date.now();
@@ -131,6 +132,7 @@ function update(dt) {
 	EKeySprite.update(dt);
 	
 	updateEntities(dt, map.animated_tile_sprites);
+	updateEntities(dt, map.game_sprites);
 	updateEntities(dt, map.item_sprites);
 	updateEntities(dt, map.npc_sprites);
 	
@@ -138,7 +140,9 @@ function update(dt) {
 	checkDoorCollisions(player);
 	
 	if (!checkItemCollisions(player, EKeySprite)) {
-		checkNPCCollisions(player, EKeySprite);
+		if (!checkNPCCollisions(player, EKeySprite)) {
+			checkGameCollisions(player, EKeySprite);
+		}
 	}
 }
 
@@ -152,6 +156,7 @@ function render() {
 	map.renderLayer(ctx, map.background);
 	map.renderLayer(ctx, map.underlay);
 	
+	renderEntities(map.game_sprites);
 	renderEntities(map.item_sprites);
 	renderEntities(map.npc_sprites);
 	renderEntity(player);

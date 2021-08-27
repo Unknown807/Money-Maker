@@ -16,6 +16,10 @@ class GameMap {
 		this.animated_tiles = null;
 		this.animated_tile_sprites = [];
 		
+		this.game_boxes = [];
+		this.game_tiles = null;
+		this.game_sprites = new Map();
+		
 		this.item_boxes = [];
 		this.items = null;
 		this.item_sprites = new Map();
@@ -45,8 +49,10 @@ class GameMap {
 		this.animated_tile_boxes = data["animated_tiles"]["data"];
 		this.item_boxes	= data["items"]["data"];
 		this.npc_boxes = data["npcs"]["data"];
+		this.game_boxes = data["games"]["data"];
 		
 		this.animated_tile_sprites = [];
+		this.game_sprites = new Map();
 		this.item_sprites = new Map();
 		this.npc_sprites = new Map();
 		
@@ -55,12 +61,24 @@ class GameMap {
 		player.footStepSoundID = data["footstep_sound"];
 		sounds.playBGSound(data["bg_sound"]);
 		
-		// Some rooms don't have any animated tiles and so don't need to use the animated tiles pool
+		// Load all animated_tile, item and game pools once into memory
 		
 		if (this.animated_tiles == null) {
 			rawdata = fs.readFileSync("./assets/maps/animated_tiles_pool.json");
 			data = JSON.parse(rawdata);
 			this.animated_tiles = data;
+		}
+		
+		if (this.items == null) {
+			rawdata = fs.readFileSync("./assets/maps/items_pool.json");
+			data = JSON.parse(rawdata);
+			this.items = data;
+		}
+		
+		if (this.game_tiles == null) {
+			rawdata = fs.readFileSync("./assets/maps/games_pool.json");
+			data = JSON.parse(rawdata);
+			this.game_tiles = data;
 		}
 		
 		// Some rooms don't have any npcs so there is no corresponding npcs json file for the map
@@ -84,14 +102,6 @@ class GameMap {
 				this.item_boxes.splice(i, 1);
 				i--;
 			}
-		}
-		
-		// Some rooms don't have any items so there is no corresponding items json file for the map
-		
-		if (this.items == null) {
-			rawdata = fs.readFileSync("./assets/maps/items_pool.json");
-			data = JSON.parse(rawdata);
-			this.items = data;
 		}
 		
 	}
@@ -128,9 +138,24 @@ class GameMap {
 									[item["tile_col"]*32, item["tile_row"]*32],
 									[32, 32]);
 			
-			
 			item_sprite.moving = true;
 			this.item_sprites.set(object["item_id"], item_sprite);
+		}
+	}
+	
+	createGameItemSprites() {
+		let object, game, game_sprite;
+		for (let i=0; i<this.game_boxes.length; i++) {
+			object = this.game_boxes[i];
+			game = this.game_tiles[object["game_id"]];
+			
+			game_sprite = new Sprite("assets/images/tilesets/"+game["tileset"],
+									[object["col"]*32, object["row"]*32],
+									[game["tile_col"]*32, game["tile_row"]*32],
+									[32, 32]);
+			
+			game_sprite.moving = true;
+			this.game_sprites.set(object["game_id"], game_sprite);
 		}
 	}
 	

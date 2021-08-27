@@ -87,6 +87,7 @@ function checkDoorCollisions(player) {
 		
 		map.updateData(player, collided_door["map_name"]);
 		map.createAnimatedTiles();
+		map.createGameItemSprites();
 		map.createItemSprites();
 		map.createNPCSprites();
 		player.pos[0] = collided_door["start_col"]*32;
@@ -108,6 +109,24 @@ function checkItemCollisions(player, EKeySprite) {
 	} else {
 		EKeySprite.hide = true;
 		current_item = null;
+	}
+	
+	return collided_item;
+}
+
+// Check whether you are in range to start mini game
+
+var current_game = null;
+
+function checkGameCollisions(player, EKeySprite) {
+	let collided_item = checkCollisions(player, map.game_boxes, false);
+	
+	if  (collided_item) {
+		EKeySprite.hide = false;
+		current_game = collided_item;
+	} else {
+		EKeySprite.hide = true;
+		current_game = null;
 	}
 	
 	return collided_item;
