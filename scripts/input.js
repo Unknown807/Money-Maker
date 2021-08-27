@@ -142,7 +142,16 @@ function npcSpeechInteraction(player, EKeySprite, map) {
 }
 
 function playGameInteraction(player, EKeySprite, map) {
-	console.log("Game played!");
+	
+	menuShown = true;
+	createMiniGameCanvas();
+	
+	switch (current_game["game_id"]) {
+		case "0": // Spin the Wheel
+			sounds.playBGSound("wheel_bg");
+			spinTheWheelInit();
+			break;
+	}
 }
 
 function handleInteractionInput(player, EKeySprite, map) {

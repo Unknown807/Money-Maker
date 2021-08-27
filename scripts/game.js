@@ -25,9 +25,11 @@ sounds.load([
 	{id: "flute_bg", src: "assets/sounds/flute_bg.wav"},
 	{id: "elevator_bg", src: "assets/sounds/elevator_bg.wav"},
 	{id: "temple_bg", src: "assets/sounds/temple_bg.wav"},
+	{id: "wheel_bg", src: "assets/sounds/wheel_bg.wav"},
+	{id: "small_victory", src: "assets/sounds/small_victory.wav"},
 	{id: "menu_click", src: "assets/sounds/menu_click.wav"},
+	{id: "sparkle", src: "assets/sounds/sparkle.wav"},
 	{id: "item_pick_up", src: "assets/sounds/item_pick_up.wav"},
-	{id: "special_item_pick_up", src: "assets/sounds/special_item_pick_up.wav"},
 	{id: "start_convo", src: "assets/sounds/start_convo.wav"},
 ]);
 

@@ -20,6 +20,12 @@ function updateInventoryMenu(inventory) {
 			itemName = document.createElement("h2");
 			itemStock = document.createElement("h3");
 			
+			if (key.includes("main ball")) {
+				itemName.style.color = "#B9E142";
+			} else if (key.includes("bonus ball")) {
+				itemName.style.color = "#E6D67E"
+			}
+			
 			itemName.textContent = key;
 			itemStock.textContent = "x"+value;
 			

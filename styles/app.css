@@ -10,7 +10,7 @@ html, body {
     background-color: #151515;
 }
 
-canvas {
+canvas, #minigame-canvas {
     display: block;
     margin: auto;
 	
@@ -21,4 +21,9 @@ canvas {
     bottom: 0;
     left: 0;
     right: 0;
+}
+
+
+#minigame-canvas {
+	background: none;
 }
