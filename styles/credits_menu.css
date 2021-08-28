@@ -1,0 +1,11 @@
+
+#credits-menu {
+	overflow-y: scroll;
+	width: 500px;
+	height: 350px;
+	top: 35px;
+}
+
+#credits-menu::-webkit-scrollbar {
+	display: none;
+}
