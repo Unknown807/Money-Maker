@@ -32,7 +32,7 @@ class GameMap {
 	
 	// Set map data
 	updateData(player, filename) {
-		let rawdata = fs.readFileSync("./assets/maps/"+filename+".json");
+		let rawdata = fs.readFileSync("./src/assets/maps/"+filename+".json");
 		let data = JSON.parse(rawdata);
 		
 		this.map_name = data["map_name"];
@@ -64,19 +64,19 @@ class GameMap {
 		// Load all animated_tile, item and game pools once into memory
 		
 		if (this.animated_tiles == null) {
-			rawdata = fs.readFileSync("./assets/maps/animated_tiles_pool.json");
+			rawdata = fs.readFileSync("./src/assets/maps/animated_tiles_pool.json");
 			data = JSON.parse(rawdata);
 			this.animated_tiles = data;
 		}
 		
 		if (this.items == null) {
-			rawdata = fs.readFileSync("./assets/maps/items_pool.json");
+			rawdata = fs.readFileSync("./src/assets/maps/items_pool.json");
 			data = JSON.parse(rawdata);
 			this.items = data;
 		}
 		
 		if (this.game_tiles == null) {
-			rawdata = fs.readFileSync("./assets/maps/games_pool.json");
+			rawdata = fs.readFileSync("./src/assets/maps/games_pool.json");
 			data = JSON.parse(rawdata);
 			this.game_tiles = data;
 		}
@@ -84,7 +84,7 @@ class GameMap {
 		// Some rooms don't have any npcs so there is no corresponding npcs json file for the map
 		
 		if (this.npc_boxes.length > 0) {
-			rawdata = fs.readFileSync("./assets/maps/"+filename+"_npcs.json");
+			rawdata = fs.readFileSync("./src/assets/maps/"+filename+"_npcs.json");
 			data = JSON.parse(rawdata);
 			this.npcs = data;
 		}

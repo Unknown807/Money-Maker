@@ -106,7 +106,7 @@ function init() {
 		console.error(err);
 	}
 	
-	map.updateData(player, "main_island_temple_1");
+	map.updateData(player, "main_island_lounge");
 	map.createAnimatedTiles();
 	map.createGameItemSprites();
 	map.createItemSprites();

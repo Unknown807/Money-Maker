@@ -1,8 +1,8 @@
 {
-  "name": "Lotto-game",
+  "name": "LottoGame",
   "version": "1.0.0",
   "description": "Simple 2d Pixel Game",
-  "main": "./app.js",
+  "main": "./src/app.js",
   "scripts": {
     "start": "electron-forge start",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -33,7 +33,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "klm-goms-calculator"
+            "name": "LottoGame"
           }
         },
         {

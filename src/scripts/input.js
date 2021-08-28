@@ -128,7 +128,7 @@ function npcSpeechInteraction(player, EKeySprite, map) {
 	let speech_counter = data[map.map_name][npc_id] || 0;
 	
 	// Get NPCs actual dialogue data
-	rawdata = fs.readFileSync("./assets/maps/"+map.map_name+"_speech.json");
+	rawdata = fs.readFileSync("./src/assets/maps/"+map.map_name+"_speech.json");
 	data = JSON.parse(rawdata);
 	let speech_data = data[speech_id][""+speech_counter];
 	
